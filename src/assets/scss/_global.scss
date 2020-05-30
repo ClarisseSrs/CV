@@ -1,9 +1,43 @@
 // Global styling for this template
+.dark .contrast-text {
+  color: white;
+}
+.light .contrast-text {
+  color: black;
+}
+
+.dark .btn-banalities  {
+  color: $dark;
+  background-color: $orange;
+}
+.light .btn-banalities {
+  color: $white;
+  background-color: $primary;
+}
+
+html {
+  overflow-y: scroll; /* hackfix modal removing scroll */
+}
 
 body {
   @include body-font;
-  padding-top: 54px;
-  color: $gray-600;
+  padding-right: 0!important; /* hackfix modal padding */
+}
+
+.scroller-light {
+  scrollbar-color: $primary $light;
+}
+.scroller-dark{
+  scrollbar-color: $secondary $dark;
+}
+
+body .dark {
+  background-color: $gray-900;
+  color: $gray-200;
+}
+body .light {
+  color: $gray-800;
+  background-color: $gray-100;
 }
 @media (min-width: 992px) {
   body {
@@ -21,7 +55,6 @@ h6 {
   @include heading-font;
   font-weight: 700;
   text-transform: uppercase;
-  color: $gray-800;
 }
 
 h1 {
@@ -54,8 +87,6 @@ p.lead {
     display: inline-block;
     height: 3.5rem;
     width: 3.5rem;
-    background-color: $gray-700;
-    color: $white !important;
     border-radius: 100%;
     text-align: center;
     font-size: 1.5rem;
@@ -64,8 +95,24 @@ p.lead {
     &:last-child {
       margin-right: 0;
     }
+  }
+}
+
+.light .social-icons {
+  a {
+    background-color: $primary;
+    color: $white !important;
     &:hover {
-      background-color: $primary;
+      background-color: darken($color: $primary, $amount: 15);
+    }
+  }
+}
+.dark .social-icons {
+  a {
+    background-color: $orange;
+    color: $dark !important;
+    &:hover {
+      background-color: lighten($color: $orange, $amount: 15);
     }
   }
 }
@@ -76,10 +123,19 @@ p.lead {
     &:not(:last-child) {
       margin-right: 1rem;
     }
-    svg {
-      &:hover {
-        color: $primary;
-      }
+  }
+}
+.dark .dev-icons {
+  svg {
+    &:hover {
+      color: $orange;
+    }
+  }
+}
+.light .dev-icons {
+  svg {
+    &:hover {
+      color: $primary;
     }
   }
 }

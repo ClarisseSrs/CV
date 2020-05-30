@@ -6,15 +6,19 @@ import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue)
 
 // Font Awesome Vue
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faLinkedin, faGithub, faTwitter, faFacebook, faCss3Alt, faJsSquare, faHtml5, faReact, faNodeJs, faAngular, faLess, faSass, faWordpress, faGulp, faGrunt, faNpm } from '@fortawesome/free-brands-svg-icons'
-import { faTrophy, faCheck } from '@fortawesome/free-solid-svg-icons'
+import {
+  faLinkedin, faGitlab, faFacebook, faJava, faPython, faVuejs, faCss3Alt, faJsSquare, faHtml5, faNodeJs,
+  faAngular, faWordpress, faNpm, faUnity, faWindows, faLinux
+} from '@fortawesome/free-brands-svg-icons'
+import { faTrophy, faCheck, faMinusSquare, faPlusSquare, faAdjust } from '@fortawesome/free-solid-svg-icons'
+import { faSun, faMoon } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { dom } from '@fortawesome/fontawesome-svg-core'
+import { dom, library } from '@fortawesome/fontawesome-svg-core'
 
 dom.watch()
 
-library.add(faLinkedin, faGithub, faTwitter, faFacebook, faCss3Alt, faJsSquare, faHtml5, faReact, faNodeJs, faAngular, faLess, faSass, faWordpress, faGulp, faGrunt, faNpm, faTrophy, faCheck)
+library.add(faLinkedin, faGitlab, faFacebook, faJava, faPython, faVuejs, faCss3Alt, faJsSquare, faHtml5, faNodeJs,
+  faAngular, faWordpress, faNpm, faUnity, faWindows, faLinux, faTrophy, faCheck, faMinusSquare, faPlusSquare, faAdjust, faSun, faMoon)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 // Main SCSS File

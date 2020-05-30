@@ -1,15 +1,17 @@
 <template>
   <section id="experience" class="resume-section p-3 p-lg-5 d-flex align-items-center">
     <div class="w-100">
-      <h2 class="mb-5">Experience</h2>
+      <h2 class="mb-5">Postes</h2>
       <div
         class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5"
         v-for="(experience, index) in experienceList"
-        :key="index"
-      >
+        :key="index">
         <div class="resume-content">
           <h3 class="mb-0">{{ experience.position }}</h3>
-          <div class="subheading mb-3">{{ experience.company }}</div>
+          <div class="subheading mb-3">
+            <a :href="experience.url" target="_blank" v-if="experience.url">{{ experience.company }}</a>
+            <span v-else>{{ experience.company }}</span>
+            </div>
           <p class="mb-0">{{ experience.summary }}</p>
         </div>
         <div class="resume-date text-md-right">
@@ -31,50 +33,28 @@ export default {
     return {
       experienceList: [
         {
-          position: "Senior Web Developer",
-          company: "Intelitec Solutions",
+          position: "Consultant en Simulation",
+          company: "ALTEN",
+          url:"https://www.alten.fr/",
           summary:
-            "Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.",
+          "Consultant ALTEN chez le client MBDA en tant que : référent C# .Net pour projet Unity, développeur applicatif pour différentes simulations de systèmes (JavaFX, Swing, Unity/C#, VBS3/C++17) et développeur full-stack pour outils de gestion de scénarios (OpenApi, Springboot, Vue.JS, Cesium.JS).",
           dates: [
             {
-              start: "March 2013",
+              start: "Juillet 2018",
               end: "Present"
             }
           ]
         },
         {
-          position: "Web Developer",
-          company: "Intelitec Solutions",
+          position: "Stagiaire",
+          company: "Oxya",
+          url:"http://www.oxya.com/index.php",
           summary:
-            "Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.",
+          "Stage en administration SAP et développement d'outils de documentation/administration : Gitlab CE/CI, Asciidoctor, Angular.JS, ASP.Net C#.",
           dates: [
             {
-              start: "December 2011",
-              end: "March 2013"
-            }
-          ]
-        },
-        {
-          position: "Junior Web Designer",
-          company: "Shout! Media Productions",
-          summary:
-            "Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration.",
-          dates: [
-            {
-              start: "July 2010",
-              end: "December 2011"
-            }
-          ]
-        },
-        {
-          position: "Web Design Intern",
-          company: "Shout! Media Productions",
-          summary:
-            "Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.",
-          dates: [
-            {
-              start: "September 2008",
-              end: "June 2010"
+              start: "Mai 2017",
+              end: "Août 2017"
             }
           ]
         }

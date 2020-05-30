@@ -5,11 +5,12 @@
       <span class="d-none d-lg-block">
         <img
           class="img-fluid img-profile rounded-circle mx-auto mb-2"
-          src="images/profile.jpg"
+          :src="'images/profile-' + themeMode + '.jpg'"
           :alt="name.first + ' ' + name.last"
         />
       </span>
     </b-navbar-brand>
+
     <b-navbar-toggle target="navbarSupportedContent"></b-navbar-toggle>
     <b-collapse id="navbarSupportedContent" is-nav>
       <b-navbar-nav v-b-scrollspy>
@@ -19,6 +20,11 @@
           class="js-scroll-trigger"
           :href="navigation.url"
         >{{ navigation.title }}</b-nav-item>
+        <b-nav-item>
+          <button :class="'sticky-bottom btn btn-'+themeMode" v-on:click="toggleTheme()" right>
+            <font-awesome-icon :icon="['far', themeMode==='light'?'sun':'moon']" title="theme"></font-awesome-icon>
+          </button>
+        </b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -28,33 +34,39 @@
 export default {
   name: "Navigation",
   props: {
-    name: Array
+    name: Object,
+    themeMode: String
+  },
+  methods: {
+    toggleTheme: function() {
+      this.$emit("themeChanged", this.themeMode === "light" ? "dark" : "light");
+    }
   },
   data() {
     return {
       navigationList: [
         {
-          title: "About",
+          title: "à propos",
           url: "#about"
         },
         {
-          title: "Experience",
+          title: "postes",
           url: "#experience"
         },
         {
-          title: "Education",
+          title: "diplômes",
           url: "#education"
         },
         {
-          title: "Skills",
+          title: "compétences",
           url: "#skills"
         },
         {
-          title: "Interests",
+          title: "intérêts",
           url: "#interests"
         },
         {
-          title: "Awards",
+          title: "projets",
           url: "#awards"
         }
       ]

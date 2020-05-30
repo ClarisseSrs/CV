@@ -1,9 +1,21 @@
 #sideNav {
+  padding: 0!important; /* hackfix modal padding */
   .navbar-nav .nav-item .nav-link {
     font-weight: 800;
     letter-spacing: 0.05rem;
     text-transform: uppercase;
   }
+}
+
+.dark #sideNav {
+  .navbar-toggler {
+    &:focus {
+      outline-color: darken($orange, 15%);
+    }
+  }
+}
+
+.light #sideNav {
   .navbar-toggler {
     &:focus {
       outline-color: lighten($primary, 15%);
@@ -31,7 +43,7 @@
       .img-profile {
         max-width: 10rem;
         max-height: 10rem;
-        border: 0.5rem solid fade-out($white, 0.8);
+        border: 0.5rem double fade-out($white, 0.8);
       }
     }
     .navbar-collapse {
