@@ -7,20 +7,14 @@
   }
 }
 
-.dark #sideNav {
-  .navbar-toggler {
-    &:focus {
-      outline-color: darken($orange, 15%);
-    }
-  }
+.dark .navbar-dark .navbar-nav .nav-link {
+  color: $black;
 }
-
-.light #sideNav {
-  .navbar-toggler {
-    &:focus {
-      outline-color: lighten($primary, 15%);
-    }
-  }
+.dark .navbar-dark .navbar-nav .nav-link.active {
+  color: $white;
+}
+.dark .navbar-dark .navbar-nav .nav-link:hover {
+  color: $gray-700;
 }
 
 @media (min-width: 992px) {

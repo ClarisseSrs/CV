@@ -1,6 +1,6 @@
 {
-  "name": "startbootstrap-resume-vue",
-  "version": "0.1.0",
+  "name": "vue_cv",
+  "version": "0.2.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -30,8 +30,8 @@
     "sass-loader": "^8.0.0",
     "vue-template-compiler": "^2.6.10"
   },
-  "description": "A Bootstrap Vue resume/CV theme based on Start Bootstrap Resume template.",
-  "repository": "git@github.com:webdevsuperfast/startbootstrap-resume-vue.git",
-  "author": "webdevsuperfast <acob.rotsen@hotmail.com>",
+  "description": "A Bootstrap Vue resume/CV theme based on webdevsuperfast's one",
+  "repository": "https://gitlab.com/psyked/vue_cv_template",
+  "author": "edouard françois <edouard.françois@linux.com>",
   "license": "MIT"
 }

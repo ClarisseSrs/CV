@@ -9,7 +9,7 @@
         <div class="resume-content">
           <h3 class="mb-0">{{ experience.position }}</h3>
           <div class="subheading mb-3">
-            <a :href="experience.url" target="_blank" v-if="experience.url">{{ experience.company }}</a>
+            <a :href="experience.url" target="_blank" rel='noopener' v-if="experience.url">{{ experience.company }}</a>
             <span v-else>{{ experience.company }}</span>
             </div>
           <p class="mb-0">{{ experience.summary }}</p>
@@ -41,7 +41,7 @@ export default {
           dates: [
             {
               start: "Juillet 2018",
-              end: "Present"
+              end: "Présent"
             }
           ]
         },

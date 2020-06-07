@@ -2,7 +2,18 @@
   <section id="interests" class="resume-section p-3 p-lg-5 d-flex align-items-center">
     <div class="w-100">
       <h2 class="mb-5">Intérêts</h2>
-      <p>
+      <div v-html="intrests"></div>
+    </div>
+  </section>
+</template>
+
+<script>
+export default {
+  name: "Interests",
+
+  data() {
+    return {
+      intrests: `<p>
         Curieux de nature, je déteste voir quelque chose et ne pas la comprendre, particulièrement en sciences et en technologies.
         <br/>
         C'est pourquoi j'aime apprendre dans différents domaines allant de l’ingénierie à la sociologie ou à la psychologie
@@ -36,13 +47,8 @@
       <p class="mb-0">
         En dehors du développement et des activités reliées à l'informatique, j'aime randonner dans des parcs ou faire du sport en salle
         : handball / volleyball / LaserGame / badminton.
-      </p>
-    </div>
-  </section>
-</template>
-
-<script>
-export default {
-  name: "Interests"
+      </p>`
+    };
+  }
 };
 </script>

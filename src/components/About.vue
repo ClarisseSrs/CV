@@ -11,15 +11,11 @@
           :href="'mailto:' + email"
         >{{ email }}</a>
       </div>
-      <p class="lead mb-5">
-        Passionné d'informatique et de développement, j'ai toujours au moins un projet personnel en cours sur mon bureau pour approfondir
-        mes connaissances sur une technologie ou en acquérir de nouvelles.
-        <br />Développeur Jeu Vidéo depuis la terminal, je cherche des projets mêlant plusieurs disciplines et faisant interagir des experts
-        dans plusieurs domaines comme le développement, les réseaux, la sécurité, l'UI, l'UX, les graphismes, etc.
+      <p class="lead mb-5" v-html="aboutText">
       </p>
       <div class="d-flex justify-content-between">
         <div class="social-icons">
-          <a :href="social.url" v-for="(social, index) in socialList" :key="index">
+          <a :href="social.url" target="_blank" rel="noopener" v-for="(social, index) in socialList" :key="index">
             <font-awesome-icon :icon="['fab', social.icon]"></font-awesome-icon>
           </a>
         </div>
@@ -37,8 +33,9 @@
       hide-footer
       centered
       return-focus="null"
+      size="lg"
     >
-      <p class="text-center">{{banalities[banalityIndex]}}</p>
+      <p class="text-center" v-html="banalities[banalityIndex]"></p>
       <b-button class="mt-3" :variant="outlineColor" block @click="nextThought">Pensée suivante</b-button>
     </b-modal>
   </section>
@@ -73,13 +70,17 @@ export default {
     return {
       banalityIndex: 0,
       banalities: [
+        "❤ Wikipedia ❤",
+        "Vous cherchez une sensibilisation à la sécurité (avancée ou débutant) ? <a class='text-info' href='https://sudo.pagerduty.com/' rel='noopener' target='_blank'>PagerDuty</a> est un bon début.",
         "Carmack > Romero",
-        "Firefox ❤",
+        "❤ Firefox ❤",
+        "En web aussi le code compilé est plus performant que le code interprété. Il n'aura fallu qu'une vingtaine d'années pour que le Webassembly n'arrive 🎉",
         "Wozniak > Jobs",
-        "Microsoft ❤",
-        "C++ n'est pas un langage bas niveau",
-        "ESP32 ❤",
-        "En web aussi le code compilé est plus performant que le code interprété 😘"
+        "❤ Microsoft ❤",
+        "'toto', 'foo', 'bar', etc. sont appellées variables métasyntaxiques.",
+        "C++ n'est pas un langage bas niveau.",
+        "❤ ESP32 ❤",
+        "Le sucre syntaxique du C# est si doux 🍭",
       ],
       address: {
         state: "France",
@@ -87,6 +88,11 @@ export default {
         zip: "59000"
       },
       email: "eduard.francois@linux.com",
+      aboutText: `Passionné d'informatique et de développement, j'ai toujours au moins un projet personnel en cours sur mon bureau pour approfondir
+        mes connaissances sur une technologie ou en acquérir de nouvelles.
+        <br />
+        Développeur Jeu Vidéo depuis la terminal, je cherche des projets mêlant plusieurs disciplines et faisant interagir des experts
+        dans plusieurs domaines comme le développement, les réseaux, la sécurité, l'UI, l'UX, les graphismes, etc.`,
       socialList: [
         {
           name: "Gitlab",

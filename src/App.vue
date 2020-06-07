@@ -17,7 +17,7 @@
         </div>
       </div>
       <Border />
-      <Skills />
+      <Skills :projectList="projectList" :themeMode="themeMode" />
       <Border />
       <div class="bg-img-parallax bg-img-3">
         <div class="caption contrast-text">
@@ -25,7 +25,7 @@
         </div>
       </div>
       <Border />
-      <Projects />
+      <Projects :projectList="projectList" />
     </b-container>
   </div>
 </template>
@@ -70,7 +70,573 @@ export default {
       name: {
         first: "Édouard",
         last: "François"
-      }
+      },
+
+      projectList: [
+        {
+          title: "Cette page",
+          function: "Developpeur front-end",
+          entity: "personnel",
+          info: {
+            url: "https://gitlab.com/psyked/vue_cv_template",
+            description: `Pour faire un CV axé sur les projets et compétences et améliorer mes compétence Front j'ai forké le projet
+            https://github.com/webdevsuperfast/startbootstrap-resume-vue et l'ai complété pour coller à mes besoins.
+            Remerciements à Gil Barbara pour ses logos (https://github.com/gilbarbara/logos) permettant de compléter ceux de font-awesome.`,
+            tools: [
+              {
+                name: "Yarn"
+              },
+              {
+                name: "Vue.JS"
+              },
+              {
+                name: "Gitlab-CI"
+              }
+            ]
+          },
+          dates: [
+            {
+              start: "05/2020",
+              end: "06/2020"
+            }
+          ]
+        },
+        {
+          title: "Support technique ponctuel C#/Unity",
+          function: "Référant C#/Unity",
+          entity: "MBDA",
+          info: {
+            description: `Le service WSSE commence à développer ses nouveaux outils sous Unity.
+            Mais manquant de ressources expérimentés en C# et avec ce moteur, ils font appel à une ressource externe pour les aider.`,
+            tools: [
+              {
+                name: "C#"
+              },
+              {
+                name: "Unity"
+              }
+            ]
+          },
+          dates: [
+            {
+              start: "03/2020",
+              end: "04/2020"
+            }
+          ]
+        },
+        {
+          title: "Client Web Cartographie",
+          function: "Développeur Web",
+          entity: "MBDA",
+          info: {
+            description: `Pour utiliser des technologies de cartographie plus modernes et souples, une
+application de cartographie sous client léger (web) est développée pour un projet de gestion de
+scénarios.`,
+            tools: [
+              {
+                name: "JavaScript"
+              },
+              {
+                name: "Vue.JS"
+              },
+              {
+                name: "Bootstrap"
+              },
+              {
+                name: "OpenAPI"
+              },
+              {
+                name: "ChartJS"
+              },
+              {
+                name: "CesiumJS"
+              },
+              {
+                name: "ReST"
+              }
+            ]
+          },
+          dates: [
+            {
+              start: "12/2019",
+              end: "06/2020"
+            }
+          ]
+        },
+        {
+          title: "Refactoring plugin VBS3",
+          function: "Développeur C/C++",
+          entity: "MBDA",
+          info: {
+            description:
+              "Passage de plugin Fusion (C++) à des appels core API (C).",
+            tools: [
+              {
+                name: "VBS3"
+              },
+              {
+                name: "C"
+              },
+              {
+                name: "C++"
+              }
+            ]
+          },
+          dates: [
+            {
+              start: "10/2019",
+              end: "11/2019"
+            }
+          ]
+        },
+        {
+          title: "Développement API C++ Messagerie Réseaux",
+          function: "Développeur applicatif C++",
+          entity: "MBDA",
+          info: {
+            description: `Pour partager une interface similaire entre les différentes simulations sur divers
+projets, un nouveau framework est développé pour fonctionner en temps réel/simulé sur différents
+protocoles de communications (UDP, HLA et RabbitMQ).`,
+            tools: [
+              {
+                name: "HLA"
+              },
+              {
+                name: "AMQP"
+              },
+              {
+                name: "C++"
+              }
+            ]
+          },
+          dates: [
+            {
+              start: "07/2019",
+              end: "09/2019"
+            }
+          ]
+        },
+        {
+          title: "Mise à jour de plugins VBS3",
+          function: "Développeur applicatif C/C++",
+          entity: "MBDA",
+          info: {
+            description:
+              "VBS3 ne supporte plus son framework C++ (plugin Fusion) et passe à un framework C.",
+            tools: [
+              {
+                name: "C"
+              },
+              {
+                name: "C++"
+              },
+              {
+                name: "VBS3"
+              }
+            ]
+          },
+          dates: [
+            {
+              start: "05/2019",
+              end: "06/2019"
+            }
+          ]
+        },
+        {
+          title: "Simulation platforme de tir",
+          function: "Développeur applicatif Java/C++",
+          entity: "MBDA",
+          info: {
+            description:
+              "Création d'un simulateur de système d'hélicoptère pour tester un module de tir tierce.",
+            tools: [
+              {
+                name: "Java"
+              },
+              {
+                name: "C++"
+              },
+              {
+                name: "PowerShell"
+              },
+              {
+                name: "JavaFX"
+              },
+              {
+                name: "Swing"
+              },
+              {
+                name: "Scapy"
+              },
+              {
+                name: "VBS3"
+              },
+              {
+                name: "Wireshark"
+              },
+              {
+                name: "OBS Studio"
+              },
+              {
+                name: "UDP"
+              },
+              {
+                name: "IPV4"
+              },
+              {
+                name: "Windows"
+              }
+            ]
+          },
+          dates: [
+            {
+              start: "12/2018",
+              end: "05/2019"
+            }
+          ]
+        },
+        {
+          title: "Mise à jour simulateurs ballistiques",
+          function: "Développeur applicatif Java/C++",
+          entity: "MBDA",
+          info: {
+            description: `Mettre à jour un démonstrateurs de tirs Surface-Surface pour salon Euronaval 2018
+et ajouter des fonctionnalités à un simulateur Air-Surface pour des essais.`,
+            tools: [
+              {
+                name: "Java"
+              },
+              {
+                name: "C++"
+              },
+              {
+                name: "PowerShell"
+              },
+              {
+                name: "JavaFX"
+              },
+              {
+                name: "Swing"
+              },
+              {
+                name: "VBS3"
+              },
+              {
+                name: "UDP"
+              },
+              {
+                name: "IPV4"
+              },
+              {
+                name: "Windows"
+              }
+            ]
+          },
+          dates: [
+            {
+              start: "07/2018",
+              end: "12/2018"
+            }
+          ]
+        },
+        {
+          title: "Utilisation de techniques de machine learning",
+          function: "[Etudiant] Développeur applicatif",
+          entity: "UQAC",
+          info: {
+            description:
+              "Résolution du jeu de plateau ('Concept') par techniques de machine learning",
+            url: "https://gitlab.com/psyked/Deep_Learning_Concept",
+            tools: [
+              {
+                name: "Machine Learning"
+              },
+              {
+                name: "Word2Vec"
+              },
+              {
+                name: "Tensorflow"
+              },
+              {
+                name: "Python"
+              }
+            ]
+          },
+          dates: [
+            {
+              start: "05/2018",
+              end: "05/2018"
+            }
+          ]
+        },
+        {
+          title: "Développement d'un jeu complet sous Unity 3D",
+          function: "[Etudiant] Développeur Jeu-Vidéo",
+          entity: "UQAC",
+          info: {
+            description: "Création d'un jeu vidéo 3D d'action",
+            url: "https://gitlab.com/psyked/JeuBerger",
+            tools: [
+              {
+                name: "Unity"
+              },
+              {
+                name: "C#"
+              },
+              {
+                name: "Scrum"
+              }
+            ]
+          },
+          dates: [
+            {
+              start: "01/2018",
+              end: "04/2018"
+            }
+          ]
+        },
+        {
+          title: "Création d'un marché pour agents autonomes",
+          function: "[Etudiant] Développeur applicatif",
+          entity: "UQAC",
+          info: {
+            description: `Mise en application d'un article scientifique sur le sujet des systèmes multi-agents :
+kashBah, un marché d'agents autonomes pour acheter et vendre des biens`,
+            url: "https://gitlab.com/psyked/MultiAgentsSystemProject",
+            tools: [
+              {
+                name: "Java"
+              },
+              {
+                name: "Jade"
+              },
+              {
+                name: "Multi Agents"
+              }
+            ]
+          },
+          dates: [
+            {
+              start: "02/2018",
+              end: "04/2018"
+            }
+          ]
+        },
+        {
+          title: "Jeu Vidéo de stratégie 2D",
+          function: "[Etudiant] Développeur Jeu-Vidéo",
+          entity: "UQAC",
+          info: {
+            description: `Développement d'un jeu sous Unity représentant une idée de gameplay à faire
+passer devant un comité green-light`,
+            url: "https://gitlab.com/psyked/DeltaPingouins",
+            tools: [
+              {
+                name: "Unity"
+              },
+              {
+                name: "C#"
+              },
+              {
+                name: "Scrum"
+              }
+            ]
+          },
+          dates: [
+            {
+              start: "10/2017",
+              end: "12/2017"
+            }
+          ]
+        },
+        {
+          title:
+            " Développement d'outils de gestion pour administrateurs SAP",
+          function:
+            "[Stagiaire] Administration SAP et développement applicatif",
+          entity: "Oxya - Loos",
+          info: {
+            description: `Intégration à un groupe d'administrateurs SAP en vue de développer des outils
+facilitant leur activités : outils de documentation continue,
+panneau de commande pour surveiller les mises à jours de systèmes utilisés
+et platforme de syncronisation des différents outils de ticketing.`,
+            tools: [
+              { name: "Prawn" },
+              { name: "Asciidoctor" },
+              { name: "ASP.Net" },
+              { name: "C#" },
+              { name: "Bootstrap" },
+              { name: "AngularJS" },
+              { name: "WSUS" },
+              { name: "Active Directory" },
+              { name: "VSpere" },
+              { name: "VMWare" },
+              { name: "Docker" },
+              { name: "Gitlab-CE" },
+              { name: "Gitlab-CI" },
+              { name: "PowerShell" },
+              { name: "Bash" },
+              { name: "Linux" },
+              { name: "Windows Server" }
+            ]
+          },
+          dates: [
+            {
+              start: "05/2017",
+              end: "08/2017"
+            }
+          ]
+        },
+        {
+          title: "Création d'un capteur environnemental domotique",
+          function:
+            "[Étudiant] Développeur Full-Stack et embarqué",
+          entity: "ISEN-Lille / Botaki",
+          info: {
+            description: `La start up Botaki qui a pour but d'éveiller les jeunes citadins au jardinage a
+besoin de développer un objet domotique récupérant divers informations à propos d'une plante
+associée.`,
+            tools: [
+              { name: "Wifi" },
+              { name: "Bluetooth LE" },
+              { name: "RFID" },
+              { name: "AngularJS" },
+              { name: "Solidworks" },
+              { name: "C++" },
+              { name: "ESP32" },
+              { name: "Arduino" },
+            ]
+          },
+          dates: [
+            {
+              start: "02/2017",
+              end: "04/2017"
+            }
+          ]
+        },
+        {
+          title: "Étude de calculs massivement parallélisés",
+          function: "[Étudiant] Développeur",
+          entity: "ISEN-Lille",
+          info: {
+            url: "https://gitlab.com/psyked/CMPprojetM1",
+            description: `Une start up utilisant des outils mathématiques (scipy) pour créer des cartes de
+bruit des villes a besoin de réduire son temps de traitement. Le traitement se faisant sur des matrices,
+notre groupe travailla pour trouver des solutions à l'optimisation de la cartographie.`,
+            tools: [
+              { name: "x86" },
+              { name: "OpenCL" },
+              { name: "Python" },
+              { name: "C++" },
+              { name: "OpenMP" }
+            ]
+          },
+          dates: [
+            {
+              start: "10/2016",
+              end: "01/2017"
+            }
+          ]
+        },
+        {
+          title: "Développement de module pour framework domotique",
+          function: "[Étudiant] Développeur Full Stack",
+          entity: "ISEN-Lille",
+          info: {
+            url: "https://gitlab.com/psyked/Promethee",
+            description: `Création d'une application permettant l'interfaçage de modules domotiques (à la
+manière de IFTTT) pour http://www.myconstellation.io/.`,
+            tools: [
+              { name: "AngularJS" },
+              { name: "Bootstrap" },
+              { name: "C#" }
+            ]
+          },
+          dates: [
+            {
+              start: "05/2016",
+              end: "07/2017"
+            }
+          ]
+        },
+        {
+          title: "Développement d'un jeu en projet de fin d'année",
+          function: "[Étudiant] Développeur Jeu-Vidéo",
+          entity: "ISEN-Lille",
+          info: {
+            description: `Jeu Vidéo développé sous Phaser.JS.`,
+            tools: [{ name: "Tiled" }, { name: "Bootstrap" }, { name: "JavaScript" }]
+          },
+          dates: [
+            {
+              start: "02/2015",
+              end: "06/2015"
+            }
+          ]
+        },
+        {
+          title: "Projet final de Terminal Option Informatique.",
+          function: "[Étudiant] Développeur Jeu Vidéo",
+          entity: "lycée NDA",
+          info: {
+            url: "https://gitlab.com/psyked/youshi",
+            description: `Création d'un jeu vidéo 2d multijoueur dans une équipe de 3 personnes.`,
+            tools: [
+              { name: "minGW" },
+              { name: "C++" },
+              { name: "Allegro" },
+              { name: "UDP" }
+            ]
+          },
+          dates: [
+            {
+              start: "05/2013",
+              end: "06/2013"
+            }
+          ]
+        },
+        {
+          title:
+            "Développements, déploiement et tests d'applications et de solutions diverses",
+          function: "Développeur / Administrateur",
+          entity: "Personnel",
+          info: {
+            url: "http://git.psyked.fr",
+            description: `Développements en tout genre pour des projets personnels pour tester de
+nouveaux langages, technologies, etc.
+Ex : Hébergement site statique via Apache2, développement d'un cron-like en python pour raspberry,
+développement d'un module électronique interfacé à un micro-service web via ESP-12, etc.`,
+            tools: [
+              { name: "VS Code" },
+              { name: "Visual Studio" },
+              { name: "IntelliJ" },
+              { name: "Metasploit" },
+              { name: "Ghidra" },
+              { name: "Git" },
+              { name: "Docker" },
+              { name: "Hyper-V" },
+              { name: "Windows" },
+              { name: "WSL" },
+              { name: "IPV4" },
+              { name: "C#" },
+              { name: "Arduino" },
+              { name: "Vue.JS" },
+              { name: "TypeScript" },
+              { name: "AngularJS" },
+              { name: "PowerShell" },
+              { name: "Bash" },
+              { name: "Raspberry Pi" },
+              { name: "ESP32" }
+            ]
+          },
+          dates: [
+            {
+              start: "2010",
+              end: "..."
+            }
+          ]
+        }
+      ]
     };
   },
   components: {

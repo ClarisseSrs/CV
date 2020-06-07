@@ -9,10 +9,10 @@
         <div class="resume-content">
           <h3 class="mb-0">{{ education.school }}</h3>
           <div class="subheading mb-3">
-            <a :href="education.url" target="_blank" v-if="education.url">{{ education.degree }}</a>
+            <a :href="education.url" target="_blank" rel='noopener' v-if="education.url">{{ education.degree }}</a>
             <span v-else>{{ education.degree }}</span>
           </div>
-          <div>{{ education.program }}</div>
+          <div class="font-weight-bold">{{ education.program }}</div>
         </div>
         <div class="resume-date text-md-right">
           <span

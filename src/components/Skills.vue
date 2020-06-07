@@ -19,6 +19,95 @@
           />
         </li>
       </ul>
+
+      <div class="subheading" style="cursor:pointer" v-on:click="toggleDetailProjects()">
+        <font-awesome-icon
+          :icon="['fa', showDetailProjects?'minus-square':'plus-square']"
+          class="text-info mr-1"
+        ></font-awesome-icon>Détails
+      </div>
+      <div v-if="showDetailProjects" class="mb-1 text-justify">
+        <span v-for="(tool, index) in mapToolsToReferences" :key="index">
+          &#160;
+          <a
+            v-b-modal.modal-tool
+            v-on:click="selectTool(tool[0])"
+            :title="tool[1].length + ' références'"
+          >&bull;{{tool[0]}}</a>
+        </span>
+      </div>
+
+      <b-modal
+        :body-bg-variant="bgColor"
+        :header-bg-variant="bgColor"
+        :body-text-variant="textColor"
+        :header-text-variant="textColor"
+        id="modal-tool"
+        :title="currentTool"
+        hide-footer
+        centered
+        return-focus="null"
+        size="lg"
+      >
+        <div v-if="currentTool">
+          <div
+            style="cursor:pointer"
+            v-on:click="toggleInfoWiki()"
+            v-if="currentToolInfo && (currentToolInfo.wikiExtract || currentToolInfo.link)"
+          >
+            <p class="font-weight-bold">
+              <font-awesome-icon
+                :icon="['fa', showInfoWiki?'minus-square':'plus-square']"
+                class="text-info mr-1"
+              ></font-awesome-icon>Informations
+            </p>
+            <div v-if="showInfoWiki">
+              <span v-if="currentToolInfo.wikiExtract">
+                Extrait Wikipedia:
+                <blockquote
+                  cite="http://www.worldwildlife.org/who/index.html"
+                  class="text-justify font-italic"
+                  v-html="currentToolInfo.wikiExtract"
+                  style="white-space: pre-line"
+                  v-if="showInfoWiki"
+                ></blockquote>
+              </span>
+              <p
+                :class="themeMode"
+                class="text-right"
+                v-if="currentToolInfo && currentToolInfo.link"
+              >
+                <a
+                  :href="currentToolInfo.link"
+                  target="_blank"
+                  rel="noopener"
+                >à propos {{currentTool}}</a>
+              </p>
+            </div>
+          </div>
+          <div v-if="mapToolsToReferences.get(currentTool)">
+            <b-table
+              :dark="enableDarkTheme"
+              striped
+              hover
+              selectable="true"
+              sticky-header
+              :items="mapToolsToReferences.get(currentTool)"
+              :fields="['title', 'entity']"
+              sort-by="entity"
+              @row-clicked="click"
+            >
+              <template v-slot:head(title)>
+                <span>Titre</span>
+              </template>
+              <template v-slot:head(entity)>
+                <span>Entreprise</span>
+              </template>
+            </b-table>
+          </div>
+        </div>
+      </b-modal>
+
       <div class="subheading mb-3">Méthodes</div>
       <ul class="fa-ul">
         <li
@@ -42,8 +131,206 @@
 <script>
 export default {
   name: "Skills",
+  computed: {
+    enableDarkTheme() {
+      return this.themeMode === "dark";
+    },
+    bgColor() {
+      return this.themeMode;
+    },
+    textColor() {
+      return this.themeMode === "dark" ? "light" : "dark";
+    }
+  },
+  methods: {
+    toggleInfoWiki: function() {
+      this.showInfoWiki = !this.showInfoWiki;
+    },
+    click: function(element) {
+      let id = "project-div-" + element.id;
+      document.getElementById(id).scrollIntoView();
+    },
+    toggleDetailProjects: function() {
+      this.showDetailProjects = !this.showDetailProjects;
+    },
+    selectTool: function(toolName) {
+      this.showInfoWiki = false;
+      this.currentTool = toolName;
+      this.currentToolInfo = this.toolsInfoMap.get(toolName);
+      if (!this.currentToolInfo) {
+        return;
+      }
+      if (this.currentToolInfo.wikiExtract) {
+        return;
+      }
+      if (!this.currentToolInfo.wikiQuery) {
+        this.currentToolInfo.wikiExtract = undefined;
+        return;
+      }
+      fetch(this.baseURLWiki + this.currentToolInfo.wikiQuery)
+        .then(res => res.json())
+        .then(json => {
+          this.currentToolInfo.wikiExtract = Object.values(
+            json.query.pages
+          )[0].extract;
+          this.$forceUpdate();
+        })
+        .catch(err => {
+          this.currentToolInfo.wikiExtract =
+            "Sorry, data fetch failed for this tool";
+        });
+    }
+  },
+  mounted: function() {
+    this.baseURLWiki =
+      "https://fr.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&origin=*&titles=";
+    // links each tool to every project using it
+    let mapToolsToReferences = new Map();
+    this.projectList.forEach((project, index) => {
+      project.id = index;
+      project.info.tools.forEach(tool => {
+        if (!mapToolsToReferences.get(tool.name)) {
+          mapToolsToReferences.set(tool.name, []);
+        }
+        mapToolsToReferences.get(tool.name).push(project);
+      });
+    });
+    this.mapToolsToReferences = new Map(
+      [...mapToolsToReferences].sort((a, b) =>
+        a[1].length < b[1].length ? 1 : -1
+      )
+    );
+  },
+  props: {
+    projectList: Array,
+    themeMode: String
+  },
   data() {
     return {
+      mapToolsToReferences: new Map(),
+      showInfoWiki: false,
+      showDetailProjects: false,
+      currentTool: "",
+      currentToolInfo: {},
+      toolsInfoMap: new Map([
+        [
+          "PowerShell",
+          {
+            wikiQuery: "powershell",
+            link: "https://docs.microsoft.com/en-us/powershell/"
+          }
+        ],
+        [
+          "C#",
+          {
+            wikiQuery: "c_sharp",
+            link:
+              "https://docs.microsoft.com/fr-fr/dotnet/csharp/programming-guide/"
+          }
+        ],
+        [
+          "C++",
+          {
+            wikiQuery: "c_plus_plus",
+            link: "https://isocpp.org/"
+          }
+        ],
+        [
+          "Bootstrap",
+          {
+            wikiQuery: "Bootstrap_(framework)",
+            link: "https://getbootstrap.com/docs/4.5/examples/"
+          }
+        ],
+        [
+          "VBS3",
+          {
+            link: "https://bisimulations.com/"
+          }
+        ],
+        [
+          "Vue.JS",
+          {
+            wikiQuery: "vuejs",
+            link: "https://vuejs.org/"
+          }
+        ],
+        [
+          "Unity",
+          {
+            wikiQuery: "Unity_(moteur_de_jeu)",
+            link: "https://unity.com/fr"
+          }
+        ],
+        [
+          "Java",
+          {
+            wikiQuery: "Java_(langage)",
+            link: "https://www.java.com/fr/"
+          }
+        ],
+        [
+          "HLA",
+          {
+            wikiQuery: "High_Level_Architecture",
+            link:
+              "https://www.sisostds.org/StandardsActivities/SupportGroups/HLA-EvolvedPSG-HighLevelArchitecture-Evolved.aspx"
+          }
+        ],
+        [
+          "ESP31",
+          {
+            wikiQuery: "ESP32",
+            link: "https://www.espressif.com/en/products/socs/esp32/overview"
+          }
+        ],
+        [
+          "WSL",
+          {
+            wikiQuery: "Windows_Subsystem_for_Linux",
+            link: "https://docs.microsoft.com/fr-fr/windows/wsl/install-win10"
+          }
+        ],
+        [
+          "Scapy",
+          {
+            wikiQuery: "Scapy",
+            link: "https://scapy.net/"
+          }
+        ],
+        [
+          "Tiled",
+          {
+            link: "https://www.mapeditor.org/"
+          }
+        ],
+        [
+          "Allegro",
+          {
+            link: "https://liballeg.org/",
+            wikiQuery: "Allegro_(bibliothèque)"
+          }
+        ],
+        [
+          "Jade",
+          {
+            link: "https://jade.tilab.com/",
+            wikiQuery: "JADE_(langage)"
+          }
+        ],
+        [
+          "Multi Agents",
+          {
+            wikiQuery: "Système_multi-agents"
+          }
+        ],
+        [
+          "Word2Vec",
+          {
+            wikiQuery: "Word2vec"
+          }
+        ],
+      ]),
       toolsList: [
         {
           name: "C#",
@@ -71,10 +358,6 @@ export default {
           icon: "python"
         },
         {
-          name: "Javascript",
-          icon: "js-square"
-        },
-        {
           name: "Typescript",
           rawSVG: `
             <mask id="tsMask">
@@ -85,43 +368,24 @@ export default {
               "/>
             </mask>
           <rect fill="currentColor" width="100%" height="100%" mask="url(#tsMask)" />
-        `},
-        {
-          name: "HTML5",
-          icon: "html5"
-        },
-        {
-          name: "CSS3",
-          icon: "css3-alt"
+        `
         },
         {
           name: "Vue.JS",
           icon: "vuejs"
         },
         {
-          name: "Angular",
-          icon: "angular"
-        },
-        {
-          name: "NodeJS",
-          icon: "node-js"
-        },
-        {
-          name: "NPM",
-          icon: "npm"
-        },
-        {
           name: "Unity",
           icon: "unity"
         },
         {
-          name: "Windows servers",
+          name: "Windows (servers)",
           icon: "windows"
         },
         {
-          name: "Linux",
+          name: "Linux (Ubuntu/WSL)",
           icon: "linux"
-        },
+        }
       ],
       workflowList: [
         "Développement AGILE, Scrum",

@@ -7,6 +7,9 @@ module.exports = {
     configureWebpack: {
     plugins: [
       new GoogleFontsPlugin('./src/fonts.json')
-    ]
+    ],
+    devServer: {
+      headers: { "Access-Control-Allow-Origin": "*" }
+    }
   }
 }

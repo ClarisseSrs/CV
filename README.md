@@ -1,6 +1,6 @@
 # Introduction
 
-This is the VueJS version of [StartBootstrap Resume](https://github.com/BlackrockDigital/startbootstrap-resume) template.
+This is a Bootstrap/Vue resume forked from [webdevsuperfast](https://github.com/webdevsuperfast/startbootstrap-resume-vue) github
 
 ## Building from Source
 
@@ -12,24 +12,18 @@ This is the VueJS version of [StartBootstrap Resume](https://github.com/Blackroc
 6. Run `yarn install` to install dependencies through terminal/CLI program.
 7. Run `yarn run serve` through your favorite CLI program.
 
- **Note:** I suggest using package manager to install Git, Node and Yarn. You can use [Homebrew](httsp://brew.sh) if you're on a Mac or Linux/WSL, [Scoop](https://scoop.sh) or [Chocolatey](https://chocolatey.org/) if you're on Windows.
+ **Note:** I suggest using package manager to install Git, Node and Yarn. You can use [Homebrew](httsp://brew.sh) if you're on a Mac or Linux/WSL, [Scoop](https://scoop.sh) or [Chocolatey](https://chocolatey.org/), [WinGet](https://docs.microsoft.com/en-us/windows/package-manager/) if you're on Windows.
 
-## Deploying to GitHub Pages
+## Deploying to Gitlab Pages
 
-1. Change the repository URL in line `23` of `deploy.sh` file to your repository URL.
-2. Set script execution flag e.g. `chmod +x deploy.sh`.
-3. Run the script e.g. `./deploy.sh`.
-4. Wait until the script finishes.
+1. Pushing commits to a Gitlab's hosted repository `.gitlab-ci.yml` will trigger the CI and build/deploy your page.
+2. Once the job done, your page will be found at <account_name>.gitlab.io/<project_name>
 
-**Note:** VueJS also published a guide to deploy VueJS sites to other platforms, checkout the [deployment](https://cli.vuejs.org/guide/deployment.html) documentation for other platforms.
+**Note:** Add `[ci skip]` in (one of) your commit message to prevent the CI to run, usefull when you only want to update the Readme or push a non-tested feature.
 
-## Using Axios to Get Data using JSON Server Fake REST API
 
-1. Clone or download the [axios](https://github.com/webdevsuperfast/startbootstrap-resume-vue/tree/axios) branch.
-2. Clone or download [Start Bootstrap Resume Data](https://github.com/webdevsuperfast/startbootstrap-resume-vue-data) repository.
-3. Edit the contents of `db.json` from the later repository.
-4. Follow [instruction](https://github.com/webdevsuperfast/startbootstrap-resume-vue-data#deploy-to-heroku) to deploy your data to Heroku or other platforms.
-5. Profit.
+**Note:** VueJS also published a guide to deploy VueJS sites to other platforms, checkout the [deployment](https://cli.vuejs.org/guide/deployment.html) documentation for other platforms or [the forked repo](https://github.com/webdevsuperfast/startbootstrap-resume-vue) which
+deploy on GitHub pages.
 
 ## Features
 
@@ -38,10 +32,18 @@ This is the VueJS version of [StartBootstrap Resume](https://github.com/Blackroc
 
 ## Todos
 
-* Bug fixes and cleanup
+* export data in external db file
+* Readme in Asciidoctor
+* handle multiple languages : all labels should be exported from Vue-data + add a language button selection
+* use Vuex to handle properly multy context information (theme, langue, technologies, etc.) with store.
 
 ## Credits
 
+* [Wikipedia](https://fr.wikipedia.org/) for the skill details information
+* [Pexels](https://www.pexels.com) for background images
+* [Pixabay](https://pixabay.com) for background images
+* [SVG-Porn](https://github.com/gilbarbara/logos)
+* [Webdevsuperfast](https://github.com/webdevsuperfast/startbootstrap-resume-vue)
 * [StartBootstrap Resume](https://github.com/BlackrockDigital/startbootstrap-resume)
 * [Bootstrap Vue](https://bootstrap-vue.js.org/)
 * [Font Awesome Vue](https://github.com/FortAwesome/vue-fontawesome)

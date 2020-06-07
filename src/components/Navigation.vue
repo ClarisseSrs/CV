@@ -67,7 +67,7 @@ export default {
         },
         {
           title: "projets",
-          url: "#awards"
+          url: "#projects"
         }
       ]
     };
