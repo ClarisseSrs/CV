@@ -16,11 +16,10 @@ This is a Bootstrap/Vue resume forked from [webdevsuperfast](https://github.com/
 
 ## Deploying to Gitlab Pages
 
-1. Pushing commits to a Gitlab's hosted repository `.gitlab-ci.yml` will trigger the CI and build/deploy your page.
+1. By pushing a commit to a Gitlab's hosted repository, `.gitlab-ci.yml` will trigger the CI and build/deploy your page.
 2. Once the job done, your page will be found at <account_name>.gitlab.io/<project_name>
 
-**Note:** Add `[ci skip]` in (one of) your commit message to prevent the CI to run, usefull when you only want to update the Readme or push a non-tested feature.
-
+**Note:** Add `[ci skip]` in (one of) your commits' message to prevent the CI to run, usefull when you only want to update the Readme or push a non-tested feature on master.
 
 **Note:** VueJS also published a guide to deploy VueJS sites to other platforms, checkout the [deployment](https://cli.vuejs.org/guide/deployment.html) documentation for other platforms or [the forked repo](https://github.com/webdevsuperfast/startbootstrap-resume-vue) which
 deploy on GitHub pages.
@@ -32,13 +31,11 @@ deploy on GitHub pages.
 
 ## Todos
 
-* export data in external db file
-* Readme in Asciidoctor
-* handle multiple languages : all labels should be exported from Vue-data + add a language button selection
-* use Vuex to handle properly multy context information (theme, langue, technologies, etc.) with store.
+* handle multiple languages in all parts.
 
 ## Credits
 
+* [i18n](https://kazupon.github.io/vue-i18n/introduction.html) for internationalization
 * [Wikipedia](https://fr.wikipedia.org/) for the skill details information
 * [Pexels](https://www.pexels.com) for background images
 * [Pixabay](https://pixabay.com) for background images

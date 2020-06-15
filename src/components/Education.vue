@@ -1,10 +1,10 @@
 <template>
   <section id="education" class="resume-section p-3 p-lg-5 d-flex align-items-center">
     <div class="w-100">
-      <h2 class="mb-5">Diplômes</h2>
+      <h2 class="mb-5">{{$t('education.diplomas')}}</h2>
       <div
         class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5"
-        v-for="(education, index) in educationList"
+        v-for="(education, index) in $t('education.educationList')"
         :key="index">
         <div class="resume-content">
           <h3 class="mb-0">{{ education.school }}</h3>
@@ -28,48 +28,5 @@
 
 <script>
 export default {
-  name: "Education",
-  data() {
-    return {
-      educationList: [
-        {
-          school: "Université du Québec à Chicoutimi",
-          degree: "Maîtrise d'informatique",
-          program: "Informatique concentration Jeu Vidéo",
-          url: "https://www.uqac.ca/programme/1537-maitrise-en-informatique-jeux-video/",
-          dates: [
-            {
-              start: "Aout 2017",
-              end: "Juin 2018"
-            }
-          ]
-        },
-        {
-          school: "Institut Supérieur d'électronique et du Numérique - Lille",
-          degree: "Ingénieur Sécurité des Systèmes d’information",
-          program: "Cycle Ingénieur",
-          url: "https://www.isen-lille.fr/formation/cycle-ingenieur/domaines-de-professionnalisation/cybersecurite/",
-          dates: [
-            {
-              start: "Septembre 2015",
-              end: "Juin 2018"
-            }
-          ]
-        },
-        {
-          school: "Institut Supérieur d'électronique et du Numérique - Lille",
-          degree: "Bachelor",
-          program: "Cycle Préparatoire Informatique et Réseaux",
-          url: "https://www.isen-lille.fr/formation/cycle-preparatoire/cycle-preparatoire-informatique-et-reseaux/",
-          dates: [
-            {
-              start: "Septembre 2013",
-              end: "Juin 2015"
-            }
-          ]
-        }
-      ]
-    };
-  }
 };
 </script>

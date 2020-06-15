@@ -1,0 +1,41 @@
+{
+    "diplomas": "diplomas",
+    "educationList": [
+        {
+            "school": "Université du Québec à Chicoutimi",
+            "degree": "Master of Computer Science",
+            "program": "Computer Science for Video Games",
+            "url": "https://www.uqac.ca/programme/1537-maitrise-en-informatique-jeux-video/",
+            "dates": [
+                {
+                    "start": "August 2017",
+                    "end": "June 2018"
+                }
+            ]
+        },
+        {
+            "school": "Institut Supérieur d'électronique et du Numérique - Lille",
+            "degree": "Cybersecurity Engineer",
+            "program": "Cybersecurity",
+            "url": "https://www.isen-lille.fr/formation/cycle-ingenieur/domaines-de-professionnalisation/cybersecurite/",
+            "dates": [
+                {
+                    "start": "September 2015",
+                    "end": "June 2018"
+                }
+            ]
+        },
+        {
+            "school": "Institut Supérieur d'électronique et du Numérique - Lille",
+            "degree": "Bachelor",
+            "program": "Computer Science and Network",
+            "url": "https://www.isen-lille.fr/formation/cycle-preparatoire/cycle-preparatoire-informatique-et-reseaux/",
+            "dates": [
+                {
+                    "start": "September 2013",
+                    "end": "June 2015"
+                }
+            ]
+        }
+    ]
+}

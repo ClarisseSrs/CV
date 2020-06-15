@@ -1,0 +1,29 @@
+{
+    "positions": "positions",
+    "positionList": [
+        {
+            "position": "Simulation Developer Contractor",
+            "company": "ALTEN",
+            "url": "https://www.alten.fr/",
+            "summary": "Contractor ALTEN at MBDA as : reffering C# .Net for Unity project, application developer for various simulation systems (JavaFX, Swing, Unity/C#, VBS3/C++17) and full-stack developer for scenarios creation tools (OpenApi, Springboot, Vue.JS, Cesium.JS).",
+            "dates": [
+                {
+                    "start": "July 2018",
+                    "end": "Present"
+                }
+            ]
+        },
+        {
+            "position": "Intern",
+            "company": "Oxya",
+            "url": "http://www.oxya.com/index.php",
+            "summary": "Internship SAP administration and documentation/administration tools development : Gitlab CE/CI, Asciidoctor, Angular.JS, ASP.Net C#.",
+            "dates": [
+                {
+                    "start": "May 2017",
+                    "end": "August 2017"
+                }
+            ]
+        }
+    ]
+}

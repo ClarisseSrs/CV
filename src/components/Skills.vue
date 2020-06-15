@@ -20,29 +20,31 @@
         </li>
       </ul>
 
-      <div class="subheading" style="cursor:pointer" v-on:click="toggleDetailProjects()">
+      <div class="subheading clickable" v-on:click="toggleDetailProjects()">
         <font-awesome-icon
           :icon="['fa', showDetailProjects?'minus-square':'plus-square']"
           class="text-info mr-1"
         ></font-awesome-icon>Détails
       </div>
-      <div v-if="showDetailProjects" class="mb-1 text-justify">
-        <span v-for="(tool, index) in mapToolsToReferences" :key="index">
-          &#160;
-          <a
-            v-b-modal.modal-tool
-            v-on:click="selectTool(tool[0])"
-            :title="tool[1].length + ' références'"
-          >&bull;{{tool[0]}}</a>
-        </span>
-      </div>
-
+      <transition name="bounce">
+        <div v-if="showDetailProjects" class="mb-1 text-justify">
+          <span v-for="(tool, index) in mapToolsToReferences" :key="index">
+            &#160;
+            <a
+              v-b-modal.modal-tool
+              v-on:click="selectTool(tool[0])"
+              :title="tool[1].length + ' références'"
+            >&bull;{{tool[0]}}</a>
+          </span>
+        </div>
+      </transition>
       <b-modal
         :body-bg-variant="bgColor"
         :header-bg-variant="bgColor"
         :body-text-variant="textColor"
         :header-text-variant="textColor"
         id="modal-tool"
+        ref="modal-tool"
         :title="currentTool"
         hide-footer
         centered
@@ -51,7 +53,7 @@
       >
         <div v-if="currentTool">
           <div
-            style="cursor:pointer"
+            class="clickable"
             v-on:click="toggleInfoWiki()"
             v-if="currentToolInfo && (currentToolInfo.wikiExtract || currentToolInfo.link)"
           >
@@ -61,41 +63,43 @@
                 class="text-info mr-1"
               ></font-awesome-icon>Informations
             </p>
-            <div v-if="showInfoWiki">
-              <span v-if="currentToolInfo.wikiExtract">
-                Extrait Wikipedia:
-                <blockquote
-                  cite="http://www.worldwildlife.org/who/index.html"
-                  class="text-justify font-italic"
-                  v-html="currentToolInfo.wikiExtract"
-                  style="white-space: pre-line"
-                  v-if="showInfoWiki"
-                ></blockquote>
-              </span>
-              <p
-                :class="themeMode"
-                class="text-right"
-                v-if="currentToolInfo && currentToolInfo.link"
-              >
-                <a
-                  :href="currentToolInfo.link"
-                  target="_blank"
-                  rel="noopener"
-                >à propos {{currentTool}}</a>
-              </p>
-            </div>
+            <transition name="bounce">
+              <div v-if="showInfoWiki">
+                <span v-if="currentToolInfo.wikiExtract">
+                  Extrait Wikipedia:
+                  <blockquote
+                    cite="http://www.worldwildlife.org/who/index.html"
+                    class="text-justify font-italic wiki-quote"
+                    v-html="currentToolInfo.wikiExtract"
+                    v-if="showInfoWiki"
+                  ></blockquote>
+                </span>
+                <p
+                  :class="themeMode"
+                  class="text-right"
+                  v-if="currentToolInfo && currentToolInfo.link"
+                >
+                  <a
+                    :href="currentToolInfo.link"
+                    target="_blank"
+                    rel="noopener"
+                  >à propos {{currentTool}}</a>
+                </p>
+              </div>
+            </transition>
           </div>
           <div v-if="mapToolsToReferences.get(currentTool)">
             <b-table
               :dark="enableDarkTheme"
               striped
               hover
-              selectable="true"
+              :selectable="true"
+              select-mode="single"
               sticky-header
               :items="mapToolsToReferences.get(currentTool)"
               :fields="['title', 'entity']"
               sort-by="entity"
-              @row-clicked="click"
+              @row-clicked="selectProject"
             >
               <template v-slot:head(title)>
                 <span>Titre</span>
@@ -121,24 +125,43 @@
       </ul>
       <div class="subheading mb-3">Divers</div>
       <ul class="fa-ul mb-0">
-        <li class="d-flex align-items-center">Anglais B2 : Cambidge certificate</li>
-        <li class="d-flex align-items-center">Permis B</li>
+        <li class="d-flex align-items-center" v-for="(misc, index) in miscelaneous" :key="index">
+          <span class="fa-li">&bull;</span>
+          {{misc}}
+        </li>
       </ul>
     </div>
   </section>
 </template>
 
 <script>
+import { eventBus } from "@/main";
+
 export default {
-  name: "Skills",
+  created: function() {
+    eventBus.$on("toolSelection", toolName => {
+      this.selectTool(toolName);
+    });
+    eventBus.$on("toolPopUp", toolName => {
+      if (!this.mapToolsToReferences.get(toolName)) {
+        return;
+      }
+      this.selectTool(toolName);
+      this.showInfoWiki = true;
+      this.$refs["modal-tool"].show();
+    });
+    eventBus.$on("themeChange", themeMode => {
+      this.themeMode = themeMode;
+    });
+  },
   computed: {
-    enableDarkTheme() {
+    enableDarkTheme: function() {
       return this.themeMode === "dark";
     },
-    bgColor() {
+    bgColor: function() {
       return this.themeMode;
     },
-    textColor() {
+    textColor: function() {
       return this.themeMode === "dark" ? "light" : "dark";
     }
   },
@@ -146,9 +169,8 @@ export default {
     toggleInfoWiki: function() {
       this.showInfoWiki = !this.showInfoWiki;
     },
-    click: function(element) {
-      let id = "project-div-" + element.id;
-      document.getElementById(id).scrollIntoView();
+    selectProject: function(proj) {
+      eventBus.$emit("projectSelection", this.projectList.indexOf(proj));
     },
     toggleDetailProjects: function() {
       this.showDetailProjects = !this.showDetailProjects;
@@ -202,16 +224,17 @@ export default {
     );
   },
   props: {
-    projectList: Array,
-    themeMode: String
+    projectList: Array
   },
-  data() {
+  data: function() {
     return {
+      themeMode: "dark",
       mapToolsToReferences: new Map(),
       showInfoWiki: false,
       showDetailProjects: false,
       currentTool: "",
       currentToolInfo: {},
+      miscelaneous: ["Anglais B2 : Cambidge certificate", "Permis B"],
       toolsInfoMap: new Map([
         [
           "PowerShell",
@@ -329,7 +352,7 @@ export default {
           {
             wikiQuery: "Word2vec"
           }
-        ],
+        ]
       ]),
       toolsList: [
         {
@@ -396,3 +419,8 @@ export default {
   }
 };
 </script>
+<style scoped>
+.wiki-quote {
+  white-space: pre-line;
+}
+</style>

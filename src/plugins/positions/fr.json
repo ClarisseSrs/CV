@@ -1,0 +1,29 @@
+{
+    "positions": "postes",
+    "positionList": [
+        {
+            "position": "Consultant en Simulation",
+            "company": "ALTEN",
+            "url": "https://www.alten.fr/",
+            "summary": "Consultant ALTEN chez le client MBDA en tant que : référent C# .Net pour projet Unity, développeur applicatif pour différentes simulations de systèmes (JavaFX, Swing, Unity/C#, VBS3/C++17) et développeur full-stack pour outils de gestion de scénarios (OpenApi, Springboot, Vue.JS, Cesium.JS).",
+            "dates": [
+                {
+                    "start": "Juillet 2018",
+                    "end": "Présent"
+                }
+            ]
+        },
+        {
+            "position": "Stagiaire",
+            "company": "Oxya",
+            "url": "http://www.oxya.com/index.php",
+            "summary": "Stage en administration SAP et développement d'outils de documentation/administration : Gitlab CE/CI, Asciidoctor, Angular.JS, ASP.Net C#.",
+            "dates": [
+                {
+                    "start": "Mai 2017",
+                    "end": "Août 2017"
+                }
+            ]
+        }
+    ]
+}

@@ -7,13 +7,16 @@
   }
 }
 
-.dark .navbar-dark .navbar-nav .nav-link {
+.dark .navbar-dark .navbar-nav .nav-link,
+.dark .dropdown-menu .dropdown-item {
   color: $black;
 }
-.dark .navbar-dark .navbar-nav .nav-link.active {
+.dark .navbar-dark .navbar-nav .nav-link.active,
+.dark .dropdown-menu .dropdown-item.active {
   color: $white;
 }
-.dark .navbar-dark .navbar-nav .nav-link:hover {
+.dark .navbar-dark .navbar-nav .nav-link:hover,
+.dark .dropdown-menu .dropdown-item:hover {
   color: $gray-700;
 }
 

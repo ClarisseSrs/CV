@@ -1,0 +1,15 @@
+{
+    "listNav": {
+        "about": "about",
+        "positions": "positions",
+        "education": "education",
+        "skills": "skills",
+        "interests": "interests",
+        "projects": "projects"
+    },
+    "changeTheme": "change theme",
+    "light": "light",
+    "dark": "dark",
+    "language": "language",
+    "selectYourLanguage": "Select your language"
+}

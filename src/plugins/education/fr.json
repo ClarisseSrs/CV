@@ -1,0 +1,41 @@
+{
+    "diplomas": "diplômes",
+    "educationList": [
+        {
+            "school": "Université du Québec à Chicoutimi",
+            "degree": "Maîtrise d'informatique",
+            "program": "Informatique concentration Jeu Vidéo",
+            "url": "https://www.uqac.ca/programme/1537-maitrise-en-informatique-jeux-video/",
+            "dates": [
+                {
+                    "start": "Aout 2017",
+                    "end": "Juin 2018"
+                }
+            ]
+        },
+        {
+            "school": "Institut Supérieur d'électronique et du Numérique - Lille",
+            "degree": "Ingénieur Sécurité des Systèmes d’information",
+            "program": "Cybersécurité",
+            "url": "https://www.isen-lille.fr/formation/cycle-ingenieur/domaines-de-professionnalisation/cybersecurite/",
+            "dates": [
+                {
+                    "start": "Septembre 2015",
+                    "end": "Juin 2018"
+                }
+            ]
+        },
+        {
+            "school": "Institut Supérieur d'électronique et du Numérique - Lille",
+            "degree": "Bachelor",
+            "program": "Cycle Préparatoire Informatique et Réseaux",
+            "url": "https://www.isen-lille.fr/formation/cycle-preparatoire/cycle-preparatoire-informatique-et-reseaux/",
+            "dates": [
+                {
+                    "start": "Septembre 2013",
+                    "end": "Juin 2015"
+                }
+            ]
+        }
+    ]
+}

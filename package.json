@@ -17,7 +17,9 @@
     "core-js": "^3.3.2",
     "google-fonts-plugin": "^5.0.2",
     "smooth-scroll": "^16.1.0",
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "vue-flag-icon": "^1.0.6",
+    "vue-i18n": "^8.18.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.0.0",

@@ -1,0 +1,21 @@
+{
+    "aboutText": "Passionné d'informatique et de développement, j'ai toujours au moins un projet personnel en cours sur mon bureau pour approfondir mes connaissances sur une technologie ou en acquérir de nouvelles. <br /> Développeur Jeu Vidéo depuis la terminal, je cherche des projets mêlant plusieurs disciplines et faisant interagir des experts dans plusieurs domaines comme le développement, les réseaux, la sécurité, l'UI, l'UX, les graphismes, etc.",
+    "thoughts": "Pensées",
+    "miscellaneousThoughts": "pensées diverses",
+    "nextThought": "Pensée suivante",
+    "thoughtList": [
+        "❤ Wikipedia ❤",
+        "Vous cherchez une sensibilisation à la sécurité (avancé ou débutant) ? <a class='text-info' href='https://sudo.pagerduty.com/' rel='noopener' target='_blank'>PagerDuty</a> est un bon début.",
+        "Carmack > Romero",
+        "Fonctionne au mieux sous Firefox ❤",
+        "En web aussi le code compilé est plus performant que le code interprété. Il n'aura fallu qu'une vingtaine d'années pour que le WebAssembly n'arrive 🎉",
+        "Wozniak > Jobs",
+        "On vous espionne ! Cette page utilise les préférences de votre OS pour choisir le thème couleur à afficher.",
+        "❤ Microsoft ❤",
+        "'toto', 'foo', 'bar', etc. sont appellées variables métasyntaxiques.",
+        "C++ n'est pas un langage bas niveau.",
+        "L'IoT avec ESP32 ❤",
+        "Le sucre syntaxique du C# est si doux 🍭",
+        "Vous pouvez sauvegarder votre navigation sur cette page en utilisant les attributs GET 'theme', 'lang', 'projectId' et 'toolName'<br/> Comme <a class='text-info' href='?theme=light&projectId=0&toolName=C%23&lang=en'>ceci</a>."
+    ]
+}

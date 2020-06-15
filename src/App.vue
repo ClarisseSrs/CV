@@ -1,15 +1,14 @@
 <template>
   <div id="app" :class="themeMode">
-    <Navigation :name="name" :themeMode="themeMode" v-on:themeChanged="onThemeChanged" />
+    <Navigation />
     <b-container class="p-0" fluid>
       <div class="bg-img-parallax bg-img-1">
         <div class="caption contrast-text">
-          <About :name="name" :themeMode="themeMode" />
+          <About />
         </div>
       </div>
-
       <Border />
-      <Experience />
+      <Positions />
       <Border />
       <div class="bg-img-parallax bg-img-2">
         <div class="caption contrast-text">
@@ -17,7 +16,7 @@
         </div>
       </div>
       <Border />
-      <Skills :projectList="projectList" :themeMode="themeMode" />
+      <Skills :projectList="projectList" />
       <Border />
       <div class="bg-img-parallax bg-img-3">
         <div class="caption contrast-text">
@@ -34,7 +33,7 @@
 import smoothScroll from "smooth-scroll";
 
 import About from "@/components/About";
-import Experience from "@/components/Experience";
+import Positions from "@/components/Positions";
 import Education from "@/components/Education";
 import Skills from "@/components/Skills";
 import Interests from "@/components/Interests";
@@ -42,17 +41,12 @@ import Projects from "@/components/Projects";
 import Navigation from "@/components/Navigation";
 import Border from "@/components/Border";
 
+import { eventBus } from "@/main";
+
 export default {
   name: "app",
-  mounted() {
-    this.onThemeChanged(
-      window.matchMedia("(prefers-color-scheme: light)").matches
-        ? "light"
-        : "dark"
-    );
-  },
   methods: {
-    onThemeChanged(value) {
+    onThemeChanged: function(value) {
       document
         .getElementsByTagName("html")[0]
         .classList.remove("scroller-" + this.themeMode);
@@ -64,14 +58,9 @@ export default {
         .classList.add("scroller-" + this.themeMode);
     }
   },
-  data() {
+  data: function() {
     return {
       themeMode: "dark",
-      name: {
-        first: "Édouard",
-        last: "François"
-      },
-
       projectList: [
         {
           title: "Cette page",
@@ -80,8 +69,8 @@ export default {
           info: {
             url: "https://gitlab.com/psyked/vue_cv_template",
             description: `Pour faire un CV axé sur les projets et compétences et améliorer mes compétence Front j'ai forké le projet
-            https://github.com/webdevsuperfast/startbootstrap-resume-vue et l'ai complété pour coller à mes besoins.
-            Remerciements à Gil Barbara pour ses logos (https://github.com/gilbarbara/logos) permettant de compléter ceux de font-awesome.`,
+            de webdevsuperfast et l'ai complété pour coller à mes besoins ainsi qu'à tester l'implémentations de certaines fonctionnalités.
+            Remerciements à Gil Barbara pour ses logos  permettant de compléter ceux de font-awesome.`,
             tools: [
               {
                 name: "Yarn"
@@ -450,16 +439,15 @@ passer devant un comité green-light`,
           ]
         },
         {
-          title:
-            " Développement d'outils de gestion pour administrateurs SAP",
+          title: " Développement d'outils de gestion pour administrateurs SAP",
           function:
             "[Stagiaire] Administration SAP et développement applicatif",
           entity: "Oxya - Loos",
           info: {
             description: `Intégration à un groupe d'administrateurs SAP en vue de développer des outils
 facilitant leur activités : outils de documentation continue,
-panneau de commande pour surveiller les mises à jours de systèmes utilisés
-et platforme de syncronisation des différents outils de ticketing.`,
+panneau de surveillance les mises à jours de systèmes
+et platforme de synchronisation des différents outils de ticketing.`,
             tools: [
               { name: "Prawn" },
               { name: "Asciidoctor" },
@@ -488,14 +476,12 @@ et platforme de syncronisation des différents outils de ticketing.`,
           ]
         },
         {
-          title: "Création d'un capteur environnemental domotique",
-          function:
-            "[Étudiant] Développeur Full-Stack et embarqué",
+          title: "Création d'un capteur environnemental connecté",
+          function: "[Étudiant] Développeur Full-Stack et embarqué",
           entity: "ISEN-Lille / Botaki",
           info: {
-            description: `La start up Botaki qui a pour but d'éveiller les jeunes citadins au jardinage a
-besoin de développer un objet domotique récupérant divers informations à propos d'une plante
-associée.`,
+            description: `La start up Botaki ayant pour but d'éveiller les jeunes citadins au jardinage a
+besoin de développer un objet connecté surveillant diverses informations à propos d'une plante associée.`,
             tools: [
               { name: "Wifi" },
               { name: "Bluetooth LE" },
@@ -504,7 +490,7 @@ associée.`,
               { name: "Solidworks" },
               { name: "C++" },
               { name: "ESP32" },
-              { name: "Arduino" },
+              { name: "Arduino" }
             ]
           },
           dates: [
@@ -565,7 +551,11 @@ manière de IFTTT) pour http://www.myconstellation.io/.`,
           entity: "ISEN-Lille",
           info: {
             description: `Jeu Vidéo développé sous Phaser.JS.`,
-            tools: [{ name: "Tiled" }, { name: "Bootstrap" }, { name: "JavaScript" }]
+            tools: [
+              { name: "Tiled" },
+              { name: "Bootstrap" },
+              { name: "JavaScript" }
+            ]
           },
           dates: [
             {
@@ -641,7 +631,7 @@ développement d'un module électronique interfacé à un micro-service web via 
   },
   components: {
     About,
-    Experience,
+    Positions,
     Education,
     Skills,
     Interests,
@@ -649,9 +639,33 @@ développement d'un module électronique interfacé à un micro-service web via 
     Navigation,
     Border
   },
+  mounted: function() {
+    let uri = window.location.search.substring(1);
+    let params = new URLSearchParams(uri);
+    let projectId = params.get("projectId");
+    let tool = params.get("toolName");
+    let theme = params.get("theme");
+    let lang = params.get("lang");
+
+    if(lang && this.$i18n.messages[lang]) {
+      this.$i18n.locale = lang;
+    }
+    if (theme) {
+      eventBus.$emit("themeSelection", theme);
+    }
+    if (tool) {
+      eventBus.$emit("toolPopUp", tool);
+    }
+    if (projectId) {
+      eventBus.$emit("projectSelection", projectId);
+    }
+  },
   created: function() {
+    eventBus.$on("themeChange", themeMode => {
+      this.onThemeChanged(themeMode);
+    });
     var scroll = new smoothScroll('a[href*="#"]', {
-      updateURL: false
+      updateURL: true
     });
   }
 };
@@ -659,22 +673,22 @@ développement d'un module électronique interfacé à un micro-service web via 
 
 <style scoped>
 .light .bg-img-1 {
-  background-image: url("../public/images/img-light-1.jpg");
+  background-image: url("../public/images/img-light-1.webp");
 }
 .dark .bg-img-1 {
-  background-image: url("../public/images/img-dark-1.jpg");
+  background-image: url("../public/images/img-dark-1.webp");
 }
 .light .bg-img-2 {
-  background-image: url("../public/images/img-light-2.jpg");
+  background-image: url("../public/images/img-light-2.webp");
 }
 .dark .bg-img-2 {
-  background-image: url("../public/images/img-dark-2.jpg");
+  background-image: url("../public/images/img-dark-2.webp");
 }
 .light .bg-img-3 {
-  background-image: url("../public/images/img-light-3.jpg");
+  background-image: url("../public/images/img-light-3.webp");
 }
 .dark .bg-img-3 {
-  background-image: url("../public/images/img-dark-3.jpg");
+  background-image: url("../public/images/img-dark-3.webp");
 }
 
 .bg-img-parallax {
