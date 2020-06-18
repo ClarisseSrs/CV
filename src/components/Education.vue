@@ -12,7 +12,7 @@
             <a :href="education.url" target="_blank" rel='noopener' v-if="education.url">{{ education.degree }}</a>
             <span v-else>{{ education.degree }}</span>
           </div>
-          <div class="font-weight-bold">{{ education.program }}</div>
+          <div class="lead font-weight-bold">{{ education.program }}</div>
         </div>
         <div class="resume-date text-md-right">
           <span

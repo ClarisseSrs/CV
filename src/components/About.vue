@@ -11,7 +11,7 @@
           :href="'mailto:' + email"
         >{{ email }}</a>
       </div>
-      <p class="lead mb-5" v-html="$t('about.aboutText')"></p>
+      <p class="mb-5 lead font-weight-bold" v-html="$t('about.aboutText')"></p>
       <div class="d-flex justify-content-between">
         <div class="social-icons">
           <a
@@ -24,7 +24,11 @@
             <font-awesome-icon :icon="['fab', social.icon]"></font-awesome-icon>
           </a>
         </div>
-        <b-button v-b-modal.modal-thoughts :variant="btnColor" class="text-md-right">{{$t('about.thoughts')}}</b-button>
+        <b-button
+          v-b-modal.modal-thoughts
+          :variant="btnColor"
+          class="text-md-right"
+        >{{$t('about.thoughts')}}</b-button>
       </div>
     </div>
 
@@ -41,7 +45,12 @@
       size="lg"
     >
       <p class="text-center" v-html="$t(`about.thoughtList[${thoughtIndex}]`)"></p>
-      <b-button class="mt-3" :variant="btnColor" block @click="nextThought">{{$t('about.nextThought')}}</b-button>
+      <b-button
+        class="mt-3"
+        :variant="btnColor"
+        block
+        @click="nextThought"
+      >{{$t('about.nextThought')}}</b-button>
     </b-modal>
   </section>
 </template>
@@ -53,17 +62,18 @@ export default {
   name: "About",
   methods: {
     nextThought: function() {
-      this.thoughtIndex = ++this.thoughtIndex % this.$t('about.thoughtList').length;
+      this.thoughtIndex =
+        ++this.thoughtIndex % this.$t("about.thoughtList").length;
     }
   },
-  created: function() {
+  beforeCreate: function() {
     eventBus.$on("themeChange", themeMode => {
       this.themeMode = themeMode;
     });
   },
   computed: {
     btnColor: function() {
-      return this.themeMode === "dark" ? "warning" : "primary";
+      return this.themeMode === "dark" ? "secondary" : "primary";
     },
     bgColor: function() {
       return this.themeMode;

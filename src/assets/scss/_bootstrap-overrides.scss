@@ -3,7 +3,7 @@
 }
 
 .dark .bg-primary {
-  background-color: $orange !important;
+  background-color: $secondary !important;
 }
 
 .light .text-primary {
@@ -11,7 +11,7 @@
 }
 
 .dark .text-primary {
-  color: $orange !important;
+  color: $secondary !important;
 }
 
 .light a {
@@ -24,10 +24,10 @@
 }
 
 .dark a {
-  color: $orange;
+  color: $secondary;
   &:hover,
   &:focus,
   &:active {
-    color: lighten($orange, 15%);
+    color: lighten($secondary, 15%);
   }
 }

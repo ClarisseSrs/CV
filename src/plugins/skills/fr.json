@@ -1,13 +1,91 @@
 {
-    "about":"à propos",
-    "experience":"postes",
-    "education":"diplômes",
-    "skills":"compétences",
-    "interests":"intérêts",
-    "projects":"projets",
-    "changeTheme":"changer le thème",
-    "light":"clair",
-    "dark":"sombre",
-    "language":"langue",
-    "selectYourLanguage":"Selectionnez votre langue"
+    "skills": "compétences",
+    "languages": "langages",
+    "tools": "outils",
+    "details": "détails",
+    "informations": "Informations",
+    "wikipediaExtract": "Extrait Wikipedia",
+    "reference": "aucune référence | une référence | {count} références",
+    "about": "à propos",
+    "title": "Titre",
+    "entity": "Entreprise",
+    "methods": "méthodes",
+    "miscellaneous": "divers",
+    "errorExtractFail": "Désolé, la récupération du résumé depuis Wikipédia a échoué.",
+    "baseURLWiki": "https://fr.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&origin=*&titles=",
+    "miscellaneousList": [
+        "Anglais B2 : Cambidge First Certificate",
+        "Permis B"
+    ],
+    "workflowList": [
+        "Développement AGILE, Scrum",
+        "Intégration Continue",
+        "TDD / BDD"
+    ],
+    "toolsInfoMap": {
+        "PowerShell": {
+            "wikiQuery": "powershell",
+            "link": "https://docs.microsoft.com/en-us/powershell/"
+        },
+        "C#": {
+            "wikiQuery": "c_sharp",
+            "link": "https://docs.microsoft.com/fr-fr/dotnet/csharp/programming-guide/"
+        },
+        "C++": {
+            "wikiQuery": "c_plus_plus",
+            "link": "https://isocpp.org/"
+        },
+        "Bootstrap": {
+            "wikiQuery": "Bootstrap_(framework)",
+            "link": "https://getbootstrap.com/docs/4.5/examples/"
+        },
+        "VBS3": {
+            "link": "https://bisimulations.com/"
+        },
+        "Vue.JS": {
+            "wikiQuery": "vuejs",
+            "link": "https://vuejs.org/"
+        },
+        "Unity": {
+            "wikiQuery": "Unity_(moteur_de_jeu)",
+            "link": "https://unity.com/fr"
+        },
+        "Java": {
+            "wikiQuery": "Java_(langage)",
+            "link": "https://www.java.com/fr/"
+        },
+        "HLA": {
+            "wikiQuery": "High_Level_Architecture",
+            "link": "https://www.sisostds.org/StandardsActivities/SupportGroups/HLA-EvolvedPSG-HighLevelArchitecture-Evolved.aspx"
+        },
+        "ESP32": {
+            "wikiQuery": "ESP32",
+            "link": "https://www.espressif.com/en/products/socs/esp32/overview"
+        },
+        "WSL": {
+            "wikiQuery": "Windows_Subsystem_for_Linux",
+            "link": "https://docs.microsoft.com/fr-fr/windows/wsl/install-win10"
+        },
+        "Scapy": {
+            "wikiQuery": "Scapy",
+            "link": "https://scapy.net/"
+        },
+        "Tiled": {
+            "link": "https://www.mapeditor.org/"
+        },
+        "Allegro": {
+            "link": "https://liballeg.org/",
+            "wikiQuery": "Allegro_(bibliothèque)"
+        },
+        "Jade": {
+            "link": "https://jade.tilab.com/",
+            "wikiQuery": "JADE_(langage)"
+        },
+        "Multi Agents": {
+            "wikiQuery": "Système_multi-agents"
+        },
+        "Word2Vec": {
+            "wikiQuery": "Word2vec"
+        }
+    }
 }

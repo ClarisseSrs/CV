@@ -77,15 +77,17 @@
 import { eventBus } from "@/main";
 
 export default {
-  created: function() {
-    this.themeMode = window.matchMedia("(prefers-color-scheme: light)").matches
-      ? "light"
-      : "dark";
-    this.themeChange();
+  beforeMount: function() {
     eventBus.$on("themeSelection", theme => {
       this.themeMode = theme === "dark" ? "dark" : "light";
       this.themeChange();
     });
+  },
+  mounted: function() {
+    this.themeMode = window.matchMedia("(prefers-color-scheme: light)").matches
+      ? "light"
+      : "dark";
+    this.themeChange();
   },
   computed: {
     outlineBtn: function() {
@@ -131,7 +133,7 @@ export default {
   },
   data: function() {
     return {
-      themeMode: "dark",
+      themeMode: "dark"
     };
   }
 };

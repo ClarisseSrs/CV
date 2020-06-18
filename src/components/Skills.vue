@@ -1,8 +1,8 @@
 <template>
   <section id="skills" class="resume-section p-3 p-lg-5 d-flex align-items-center">
     <div class="w-100">
-      <h2 class="mb-5">Compétences</h2>
-      <div class="subheading mb-3">Langages &amp; Outils</div>
+      <h2 class="mb-5">{{$t('skills.skills')}}</h2>
+      <div class="subheading mb-3">{{$t('skills.tools')}} &amp; {{$t('skills.languages')}}</div>
       <ul class="list-inline dev-icons">
         <li
           class="list-inline-item"
@@ -15,7 +15,7 @@
             class="svg-inline--fa fa-w-14"
             viewBox="0 0 256 256"
             v-html="tools.rawSVG"
-            v-if="tools.rawSVG"
+            v-show="tools.rawSVG"
           />
         </li>
       </ul>
@@ -24,16 +24,17 @@
         <font-awesome-icon
           :icon="['fa', showDetailProjects?'minus-square':'plus-square']"
           class="text-info mr-1"
-        ></font-awesome-icon>Détails
+        ></font-awesome-icon>
+        {{$t('skills.details')}}
       </div>
       <transition name="bounce">
-        <div v-if="showDetailProjects" class="mb-1 text-justify">
+        <div v-show="showDetailProjects" class="mb-1 text-justify">
           <span v-for="(tool, index) in mapToolsToReferences" :key="index">
             &#160;
             <a
               v-b-modal.modal-tool
               v-on:click="selectTool(tool[0])"
-              :title="tool[1].length + ' références'"
+              :title="$tc('skills.reference', tool[1].length)"
             >&bull;{{tool[0]}}</a>
           </span>
         </div>
@@ -51,44 +52,43 @@
         return-focus="null"
         size="lg"
       >
-        <div v-if="currentTool">
+        <div v-show="currentTool">
           <div
-            class="clickable"
-            v-on:click="toggleInfoWiki()"
             v-if="currentToolInfo && (currentToolInfo.wikiExtract || currentToolInfo.link)"
           >
-            <p class="font-weight-bold">
+            <p class="font-weight-bold clickable"
+            v-on:click="toggleInfoWiki()">
               <font-awesome-icon
                 :icon="['fa', showInfoWiki?'minus-square':'plus-square']"
                 class="text-info mr-1"
-              ></font-awesome-icon>Informations
+              ></font-awesome-icon>
+              {{$t('skills.informations')}}
             </p>
             <transition name="bounce">
-              <div v-if="showInfoWiki">
-                <span v-if="currentToolInfo.wikiExtract">
-                  Extrait Wikipedia:
+              <div v-show="showInfoWiki">
+                <span v-show="currentToolInfo.wikiExtract">
+                  {{$t('skills.wikipediaExtract')}} :
                   <blockquote
-                    cite="http://www.worldwildlife.org/who/index.html"
                     class="text-justify font-italic wiki-quote"
                     v-html="currentToolInfo.wikiExtract"
-                    v-if="showInfoWiki"
+                    v-show="showInfoWiki"
                   ></blockquote>
                 </span>
                 <p
                   :class="themeMode"
                   class="text-right"
-                  v-if="currentToolInfo && currentToolInfo.link"
+                  v-show="currentToolInfo && currentToolInfo.link"
                 >
                   <a
                     :href="currentToolInfo.link"
                     target="_blank"
                     rel="noopener"
-                  >à propos {{currentTool}}</a>
+                  >{{$t('skills.about')}} {{currentTool}}</a>
                 </p>
               </div>
             </transition>
           </div>
-          <div v-if="mapToolsToReferences.get(currentTool)">
+          <div v-show="mapToolsToReferences.get(currentTool)">
             <b-table
               :dark="enableDarkTheme"
               striped
@@ -102,20 +102,20 @@
               @row-clicked="selectProject"
             >
               <template v-slot:head(title)>
-                <span>Titre</span>
+                <span>{{$t('skills.title')}}</span>
               </template>
               <template v-slot:head(entity)>
-                <span>Entreprise</span>
+                <span>{{$t('skills.entity')}}</span>
               </template>
             </b-table>
           </div>
         </div>
       </b-modal>
 
-      <div class="subheading mb-3">Méthodes</div>
+      <div class="subheading mb-3">{{$t('skills.methods')}}</div>
       <ul class="fa-ul">
         <li
-          v-for="(workflow, index) in workflowList"
+          v-for="(workflow, index) in $t('skills.workflowList')"
           :key="index"
           class="d-flex align-items-center"
         >
@@ -123,9 +123,9 @@
           {{ workflow }}
         </li>
       </ul>
-      <div class="subheading mb-3">Divers</div>
+      <div class="subheading mb-3">{{$t('skills.miscellaneous')}}</div>
       <ul class="fa-ul mb-0">
-        <li class="d-flex align-items-center" v-for="(misc, index) in miscelaneous" :key="index">
+        <li class="d-flex align-items-center" v-for="(misc, index) in $t('skills.miscellaneousList')" :key="index">
           <span class="fa-li">&bull;</span>
           {{misc}}
         </li>
@@ -138,7 +138,7 @@
 import { eventBus } from "@/main";
 
 export default {
-  created: function() {
+  beforeCreate: function() {
     eventBus.$on("toolSelection", toolName => {
       this.selectTool(toolName);
     });
@@ -170,7 +170,7 @@ export default {
       this.showInfoWiki = !this.showInfoWiki;
     },
     selectProject: function(proj) {
-      eventBus.$emit("projectSelection", this.projectList.indexOf(proj));
+      eventBus.$emit("projectSelection", proj.id);
     },
     toggleDetailProjects: function() {
       this.showDetailProjects = !this.showDetailProjects;
@@ -178,7 +178,7 @@ export default {
     selectTool: function(toolName) {
       this.showInfoWiki = false;
       this.currentTool = toolName;
-      this.currentToolInfo = this.toolsInfoMap.get(toolName);
+      this.currentToolInfo = this.$t("skills.toolsInfoMap")[toolName];
       if (!this.currentToolInfo) {
         return;
       }
@@ -189,7 +189,7 @@ export default {
         this.currentToolInfo.wikiExtract = undefined;
         return;
       }
-      fetch(this.baseURLWiki + this.currentToolInfo.wikiQuery)
+      fetch(this.$t("skills.baseURLWiki") + this.currentToolInfo.wikiQuery)
         .then(res => res.json())
         .then(json => {
           this.currentToolInfo.wikiExtract = Object.values(
@@ -198,17 +198,14 @@ export default {
           this.$forceUpdate();
         })
         .catch(err => {
-          this.currentToolInfo.wikiExtract =
-            "Sorry, data fetch failed for this tool";
+          this.currentToolInfo.wikiExtract = this.$t("skills.errorExtractFail");
         });
     }
   },
-  mounted: function() {
-    this.baseURLWiki =
-      "https://fr.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&origin=*&titles=";
+  beforeMount: function() {
     // links each tool to every project using it
     let mapToolsToReferences = new Map();
-    this.projectList.forEach((project, index) => {
+    this.$t("projects.projectList").forEach((project, index) => {
       project.id = index;
       project.info.tools.forEach(tool => {
         if (!mapToolsToReferences.get(tool.name)) {
@@ -223,9 +220,6 @@ export default {
       )
     );
   },
-  props: {
-    projectList: Array
-  },
   data: function() {
     return {
       themeMode: "dark",
@@ -234,126 +228,6 @@ export default {
       showDetailProjects: false,
       currentTool: "",
       currentToolInfo: {},
-      miscelaneous: ["Anglais B2 : Cambidge certificate", "Permis B"],
-      toolsInfoMap: new Map([
-        [
-          "PowerShell",
-          {
-            wikiQuery: "powershell",
-            link: "https://docs.microsoft.com/en-us/powershell/"
-          }
-        ],
-        [
-          "C#",
-          {
-            wikiQuery: "c_sharp",
-            link:
-              "https://docs.microsoft.com/fr-fr/dotnet/csharp/programming-guide/"
-          }
-        ],
-        [
-          "C++",
-          {
-            wikiQuery: "c_plus_plus",
-            link: "https://isocpp.org/"
-          }
-        ],
-        [
-          "Bootstrap",
-          {
-            wikiQuery: "Bootstrap_(framework)",
-            link: "https://getbootstrap.com/docs/4.5/examples/"
-          }
-        ],
-        [
-          "VBS3",
-          {
-            link: "https://bisimulations.com/"
-          }
-        ],
-        [
-          "Vue.JS",
-          {
-            wikiQuery: "vuejs",
-            link: "https://vuejs.org/"
-          }
-        ],
-        [
-          "Unity",
-          {
-            wikiQuery: "Unity_(moteur_de_jeu)",
-            link: "https://unity.com/fr"
-          }
-        ],
-        [
-          "Java",
-          {
-            wikiQuery: "Java_(langage)",
-            link: "https://www.java.com/fr/"
-          }
-        ],
-        [
-          "HLA",
-          {
-            wikiQuery: "High_Level_Architecture",
-            link:
-              "https://www.sisostds.org/StandardsActivities/SupportGroups/HLA-EvolvedPSG-HighLevelArchitecture-Evolved.aspx"
-          }
-        ],
-        [
-          "ESP31",
-          {
-            wikiQuery: "ESP32",
-            link: "https://www.espressif.com/en/products/socs/esp32/overview"
-          }
-        ],
-        [
-          "WSL",
-          {
-            wikiQuery: "Windows_Subsystem_for_Linux",
-            link: "https://docs.microsoft.com/fr-fr/windows/wsl/install-win10"
-          }
-        ],
-        [
-          "Scapy",
-          {
-            wikiQuery: "Scapy",
-            link: "https://scapy.net/"
-          }
-        ],
-        [
-          "Tiled",
-          {
-            link: "https://www.mapeditor.org/"
-          }
-        ],
-        [
-          "Allegro",
-          {
-            link: "https://liballeg.org/",
-            wikiQuery: "Allegro_(bibliothèque)"
-          }
-        ],
-        [
-          "Jade",
-          {
-            link: "https://jade.tilab.com/",
-            wikiQuery: "JADE_(langage)"
-          }
-        ],
-        [
-          "Multi Agents",
-          {
-            wikiQuery: "Système_multi-agents"
-          }
-        ],
-        [
-          "Word2Vec",
-          {
-            wikiQuery: "Word2vec"
-          }
-        ]
-      ]),
       toolsList: [
         {
           name: "C#",
@@ -410,11 +284,6 @@ export default {
           icon: "linux"
         }
       ],
-      workflowList: [
-        "Développement AGILE, Scrum",
-        "Intégration Continue",
-        "TDD / BDD"
-      ]
     };
   }
 };

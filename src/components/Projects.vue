@@ -1,12 +1,12 @@
 <template>
   <section id="projects" class="resume-section p-3 p-lg-5 d-flex align-items-center">
     <div class="w-100">
-      <h2 class="mb-5">Projets</h2>
+      <h2 class="mb-5">{{$t('projects.projects')}}</h2>
       <div
         class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2"
-        v-for="(project, index) in projectList"
+        v-for="(project, index) in $t('projects.projectList')"
         :key="index"
-        :class="project.info.highlight? 'highlight': ''"
+        :class="highlightProjects.get(index)? 'highlight': ''"
       >
         <div class="resume-content">
           <h3 class="mb-0 clickable" v-on:click="showProject(index)">{{ project.title }}</h3>
@@ -17,7 +17,7 @@
               v-on:click="showProject(index)"
             >
               <font-awesome-icon
-                :icon="['fa', project.info.show?'minus-square':'plus-square']"
+                :icon="['fa', openProjects.get(index)?'minus-square':'plus-square']"
                 class="text-info"
               ></font-awesome-icon>
               <span>
@@ -27,15 +27,18 @@
               </span>
             </div>
             <transition name="bounce">
-              <div class="text-left" v-show="project.info.show">
-                <a :href="project.info.url" target="_blank" rel="noopener" v-if="project.info.url">
-                  Lien vers le projet
+              <div class="text-left" v-show="openProjects.get(index)">
+                <a
+                  :href="project.info.url"
+                  target="_blank"
+                  rel="noopener"
+                  v-show="project.info.url"
+                >
+                  {{$t('projects.linkToProject')}}
                   <br />
                 </a>
-                <div
-                  class="contrast-text text-justify font-weight-bold"
-                >{{ project.info.description }}</div>
-                <div v-if="project.info.tools" class="mb-1 text-justify font-italic">
+                <div class="contrast-text text-justify">{{ project.info.description }}</div>
+                <div v-show="project.info.tools" class="mb-1 text-justify font-italic">
                   <span v-for="(tool, index) in project.info.tools" :key="index">
                     &#160;
                     <a
@@ -64,12 +67,12 @@
 import { eventBus } from "@/main";
 
 export default {
-  props: {
-    projectList: Array
-  },
-  created: function() {
+  beforeCreate: function() {
     eventBus.$on("projectSelection", indexProj => {
-      if (indexProj >= this.projectList.length || indexProj < 0) {
+      if (
+        indexProj >= this.$t("projects.projectList").length ||
+        indexProj < 0
+      ) {
         return;
       }
       this.showProject(indexProj, true);
@@ -79,19 +82,23 @@ export default {
   },
   methods: {
     showProject: function(index, highlight = false) {
-      let prj = this.projectList[index];
-
-      this.projectList.forEach(proj => {
-        proj.info.highlight = false;
-        if (highlight) proj.info.show = false;
-      });
-      if (highlight) prj.info.highlight = true;
-      prj.info.show = !prj.info.show;
+      this.highlightProjects.clear();
+      if (highlight) {
+        this.openProjects.clear();
+        this.highlightProjects.set(index, true);
+      }
+      this.openProjects.set(index, !this.openProjects.get(index));
       this.$forceUpdate();
     },
     selectTool: function(toolName) {
       eventBus.$emit("toolSelection", toolName);
     }
+  },
+  data: function() {
+    return {
+      openProjects: new Map(),
+      highlightProjects: new Map(),
+    };
   }
 };
 </script>

@@ -23,12 +23,12 @@ body {
 }
 
 body .dark {
-  background-color: $gray-900;
-  color: $gray-200;
+  background-color: $dark;
+  color: $light;
 }
 body .light {
-  color: $gray-800;
-  background-color: $gray-100;
+  color: $dark;
+  background-color: $light;
 }
 @media (min-width: 992px) {
   body {
@@ -62,8 +62,7 @@ h3 {
 }
 
 p.lead {
-  font-size: 1.15rem;
-  font-weight: 400;
+  font-size: 1.1rem;
 }
 
 .subheading {
@@ -100,10 +99,10 @@ p.lead {
 }
 .dark .social-icons {
   a {
-    background-color: $orange;
+    background-color: $secondary;
     color: $dark !important;
     &:hover {
-      background-color: lighten($color: $orange, $amount: 15);
+      background-color: lighten($color: $secondary, $amount: 15);
     }
   }
 }
@@ -119,7 +118,7 @@ p.lead {
 .dark .dev-icons {
   svg {
     &:hover {
-      color: $orange;
+      color: $secondary;
     }
   }
 }

@@ -14,7 +14,9 @@ const messages = {
         about: require("@/plugins/about/en.json"),
         positions: require("@/plugins/positions/en.json"),
         education: require("@/plugins/education/en.json"),
+        skills: require("@/plugins/skills/en.json"),
         interests: require("@/plugins/interests/en.json"),
+        projects: require("@/plugins/projects/en.json"),
     },
     'fr': {
         lang: 'Français',
@@ -27,7 +29,9 @@ const messages = {
         about: require("@/plugins/about/fr.json"),
         positions: require("@/plugins/positions/fr.json"),
         education: require("@/plugins/education/fr.json"),
+        skills: require("@/plugins/skills/fr.json"),
         interests: require("@/plugins/interests/fr.json"),
+        projects: require("@/plugins/projects/fr.json"),
     },
 };
 const i18n =
