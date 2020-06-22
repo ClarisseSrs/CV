@@ -1,6 +1,8 @@
 {
     "projects": "projets",
     "linkToProject": "Lien vers le projet ",
+    "toggleDisplay": "basculer l'affichage détaillé du projet",
+    "seeDetails": "voir les détails",
     "projectList": [
         {
             "title": "Cette page",

@@ -40,6 +40,7 @@
           </b-button>
         </b-nav-item>
         <b-modal
+        static="true"
           :body-bg-variant="bgColor"
           :header-bg-variant="bgColor"
           :body-text-variant="textColor"
@@ -59,6 +60,7 @@
               @click="changeLocale(lang.language)"
               :variant="outlineColor"
               :pressed="isLanguageSelected(lang.language)"
+              :lang="lang.language"
               squared
             >
               <flag :iso="lang.flag" v-bind:squared="false" />
@@ -138,7 +140,102 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
+@import "@/assets/scss/_variables.scss";
+#sideNav {
+  padding: 0 !important; /* hackfix modal padding */
+  .navbar-nav .nav-item .nav-link {
+    font-weight: 800;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+  }
+}
+
+.dark {
+  .navbar .navbar-nav .nav-link,
+  .dropdown-menu .dropdown-item {
+    color: $black;
+  }
+  .navbar .navbar-nav .nav-link.active,
+  .dropdown-menu .dropdown-item.active {
+    color: $white;
+  }
+  .navbar .navbar-nav .nav-link:hover,
+  .dropdown-menu .dropdown-item:hover {
+    color: $gray-700;
+  }
+}
+
+.light {
+  .navbar .navbar-nav .nav-link,
+  .dropdown-menu .dropdown-item {
+    color: $white;
+  }
+  .navbar .navbar-nav .nav-link.active,
+  .dropdown-menu .dropdown-item.active {
+    color: $secondary;
+  }
+  .navbar .navbar-nav .nav-link:hover,
+  .dropdown-menu .dropdown-item:hover {
+    color: lighten($secondary, 15%);
+  }
+}
+
+@media (min-width: 992px) {
+  #sideNav {
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    width: $sidebar-base-width;
+    height: 100vh;
+    .navbar-brand {
+      display: flex;
+
+      margin: auto auto 0;
+      padding: 0.5rem;
+      .img-profile {
+        max-width: 10rem;
+        max-height: 10rem;
+        border: 0.5rem double fade-out($white, 0.8);
+      }
+    }
+    .navbar-collapse {
+      display: flex;
+      align-items: flex-start;
+      flex-grow: 0;
+
+      width: 100%;
+      margin-bottom: auto;
+      .navbar-nav {
+        flex-direction: column;
+
+        width: 100%;
+        .nav-item {
+          display: block;
+          .nav-link {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+.dark {
+  .bg-primary {
+    background-color: $secondary !important;
+  }
+}
+.light {
+  .bg-primary {
+    background-color: $primary !important;
+  }
+}
 .btn-language {
   display: flex;
   justify-content: space-between;

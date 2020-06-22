@@ -12,16 +12,10 @@ html {
 
 body {
   @include body-font;
+}
+.modal-open {
   padding-right: 0!important; /* hackfix modal padding */
 }
-
-.scroller-light {
-  scrollbar-color: $primary $light;
-}
-.scroller-dark{
-  scrollbar-color: $secondary $dark;
-}
-
 body .dark {
   background-color: $dark;
   color: $light;
@@ -70,64 +64,6 @@ p.lead {
   font-weight: 500;
   @include heading-font;
   font-size: 1.5rem;
-}
-
-.social-icons {
-  a {
-    display: inline-block;
-    height: 3.5rem;
-    width: 3.5rem;
-    border-radius: 100%;
-    text-align: center;
-    font-size: 1.5rem;
-    line-height: 3.5rem;
-    margin-right: 1rem;
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-}
-
-.light .social-icons {
-  a {
-    background-color: $primary;
-    color: $white !important;
-    &:hover {
-      background-color: darken($color: $primary, $amount: 15);
-    }
-  }
-}
-.dark .social-icons {
-  a {
-    background-color: $secondary;
-    color: $dark !important;
-    &:hover {
-      background-color: lighten($color: $secondary, $amount: 15);
-    }
-  }
-}
-
-.dev-icons {
-  font-size: 3rem;
-  .list-inline-item {
-    &:not(:last-child) {
-      margin-right: 1rem;
-    }
-  }
-}
-.dark .dev-icons {
-  svg {
-    &:hover {
-      color: $secondary;
-    }
-  }
-}
-.light .dev-icons {
-  svg {
-    &:hover {
-      color: $primary;
-    }
-  }
 }
 
 .clickable {

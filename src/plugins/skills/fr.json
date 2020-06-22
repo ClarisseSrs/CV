@@ -3,6 +3,7 @@
     "languages": "langages",
     "tools": "outils",
     "details": "détails",
+    "toggleDisplay": "basculer l'affichage détaillé des outils",
     "informations": "Informations",
     "wikipediaExtract": "Extrait Wikipedia",
     "reference": "aucune référence | une référence | {count} références",

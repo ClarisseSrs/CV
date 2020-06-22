@@ -9,10 +9,16 @@
         :class="highlightProjects.get(index)? 'highlight': ''"
       >
         <div class="resume-content">
-          <h3 class="mb-0 clickable" v-on:click="showProject(index)">{{ project.title }}</h3>
+          <h4
+            class="mb-0 clickable"
+            :aria-expanded="openProjects.get(index)"
+            v-on:click="showProject(index)"
+            :title="$t('projects.toggleDisplay')"
+          >{{ project.title }}</h4>
           <div class="ml-3">
-            <div
+            <h5
               class="subheading mb-0 clickable"
+              :aria-expanded="openProjects.get(index)"
               :id="'project-div-'+index"
               v-on:click="showProject(index)"
             >
@@ -23,9 +29,9 @@
               <span>
                 {{ project.function }}
                 <b>@</b>
-                <strong class="text-danger">{{ project.entity }}</strong>
+                <strong class="text-entity">{{ project.entity }}</strong>
               </span>
-            </div>
+            </h5>
             <transition name="bounce">
               <div class="text-left" v-show="openProjects.get(index)">
                 <a
@@ -37,13 +43,14 @@
                   {{$t('projects.linkToProject')}}
                   <br />
                 </a>
-                <div class="contrast-text text-justify">{{ project.info.description }}</div>
+                <p class="contrast-text text-justify mb-1 mt-1">{{ project.info.description }}</p>
                 <div v-show="project.info.tools" class="mb-1 text-justify font-italic">
                   <span v-for="(tool, index) in project.info.tools" :key="index">
                     &#160;
                     <a
                       v-b-modal.modal-tool
                       v-on:click="selectTool(tool.name)"
+                      :title="$t('projects.seeDetails')"
                     >&bull;{{tool.name}}</a>
                   </span>
                 </div>
@@ -97,14 +104,23 @@ export default {
   data: function() {
     return {
       openProjects: new Map(),
-      highlightProjects: new Map(),
+      highlightProjects: new Map()
     };
   }
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "@/assets/scss/_variables.scss";
+
 .highlight {
   background-color: rgba(255, 255, 0, 0.35);
+}
+
+.dark .text-entity {
+  color: $secondary;
+}
+.light .text-entity {
+  color: $primary;
 }
 </style>

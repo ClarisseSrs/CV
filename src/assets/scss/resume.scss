@@ -1,13 +1,11 @@
 @import "variables.scss";
 
 // Bootstrap SCSS
-@import "../../../node_modules/bootstrap/scss/bootstrap";
-
+@import "~bootstrap/scss/bootstrap";
 // Bootstrap Vue SCSS
-@import "../../../node_modules/bootstrap-vue/src/index";
+@import "~bootstrap-vue/src/index";
 
 @import "mixins.scss";
 @import "global.scss";
-@import "nav.scss";
 @import "resume-item.scss";
 @import "bootstrap-overrides.scss";

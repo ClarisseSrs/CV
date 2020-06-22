@@ -20,7 +20,12 @@
         </li>
       </ul>
 
-      <div class="subheading clickable" v-on:click="toggleDetailProjects()">
+      <div
+        class="subheading clickable"
+        v-on:click="toggleDetailProjects()"
+        :aria-expanded="showDetailProjects"
+        :title="$t('skills.toggleDisplay')"
+      >
         <font-awesome-icon
           :icon="['fa', showDetailProjects?'minus-square':'plus-square']"
           class="text-info mr-1"
@@ -53,11 +58,8 @@
         size="lg"
       >
         <div v-show="currentTool">
-          <div
-            v-if="currentToolInfo && (currentToolInfo.wikiExtract || currentToolInfo.link)"
-          >
-            <p class="font-weight-bold clickable"
-            v-on:click="toggleInfoWiki()">
+          <div v-if="currentToolInfo && (currentToolInfo.wikiExtract || currentToolInfo.link)">
+            <p class="font-weight-bold clickable" v-on:click="toggleInfoWiki()">
               <font-awesome-icon
                 :icon="['fa', showInfoWiki?'minus-square':'plus-square']"
                 class="text-info mr-1"
@@ -125,7 +127,11 @@
       </ul>
       <div class="subheading mb-3">{{$t('skills.miscellaneous')}}</div>
       <ul class="fa-ul mb-0">
-        <li class="d-flex align-items-center" v-for="(misc, index) in $t('skills.miscellaneousList')" :key="index">
+        <li
+          class="d-flex align-items-center"
+          v-for="(misc, index) in $t('skills.miscellaneousList')"
+          :key="index"
+        >
           <span class="fa-li">&bull;</span>
           {{misc}}
         </li>
@@ -283,13 +289,38 @@ export default {
           name: "Linux (Ubuntu/WSL)",
           icon: "linux"
         }
-      ],
+      ]
     };
   }
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
+@import "@/assets/scss/_variables.scss";
+
 .wiki-quote {
   white-space: pre-line;
+}
+
+.dev-icons {
+  font-size: 3rem;
+  .list-inline-item {
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+}
+.dark .dev-icons {
+  svg {
+    &:hover {
+      color: $secondary;
+    }
+  }
+}
+.light .dev-icons {
+  svg {
+    &:hover {
+      color: $primary;
+    }
+  }
 }
 </style>

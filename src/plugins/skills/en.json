@@ -3,6 +3,7 @@
     "languages": "languages",
     "tools": "tools",
     "details": "details",
+    "toggleDisplay": "toggle display of detailed skills",
     "informations": "Informations",
     "wikipediaExtract": "Wikipedia extract",
     "reference": "no reference | one reference | {count} references",

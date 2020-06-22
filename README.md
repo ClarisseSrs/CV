@@ -21,29 +21,25 @@ This is a Bootstrap/Vue resume forked from [webdevsuperfast](https://github.com/
 
 **Note:** Add `[ci skip]` in (one of) your commits' message to prevent the CI to run, usefull when you only want to update the Readme or push a non-tested feature on master.
 
-**Note:** VueJS also published a guide to deploy VueJS sites to other platforms, checkout the [deployment](https://cli.vuejs.org/guide/deployment.html) documentation for other platforms or [the forked repo](https://github.com/webdevsuperfast/startbootstrap-resume-vue) which
-deploy on GitHub pages.
+**Note:** VueJS also published a guide to deploy VueJS sites to other platforms, checkout the [deployment](https://cli.vuejs.org/guide/deployment.html) documentation for other platforms or [the forked repo](https://github.com/webdevsuperfast/startbootstrap-resume-vue) which deploy on GitHub pages.
 
 ## Customize
 If you want to use this template as it and only import your data, please follow these steps:
 
 * In `public/images` change the profile images and backgrounds.
 * In `public/` change the favicon.
-* In `public/` modify the `index.html` to display a message pointing to your ressources (in case of diisabled javascript).
+* In `public/` modify the `index.html` to display a message pointing to your ressources (in case of disabled javascript) and change the content of `description`. If needed change the `lang` param with yours.
 * In `src/plugins/X` change data to match your's (if you add/remove languages, apply changes in `src/plugins/i18n.js` file).
 * More personnal data should be changed in `src/components/About.vue` (socials and addresses).
 * To customize 'tools and languages' icons, go to `src/coponents/Skills.vue` and change `toolsList` (if you add new icons here, don't forget to modify your libraries' imports in `main.js`).
 * In `assets/scss/_variables_.scss` change 'primary' and 'secondary' colors to the ones suiting you.
 
+For more customisation, feel free to change the CSS/SCSS from `.vue` files or style files in `assets/scss` then change/add/delete Vue components to get the resume you want.
+
 ## Features
 
 1. Built with Bootstrap Vue and Font Awesome Vue.
 2. No jQuery dependency.
-
-## Todos
-
-* handle multiple languages in projects part.
-* remove hackfix nav padding.
 
 ## Credits
 

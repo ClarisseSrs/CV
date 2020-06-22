@@ -60,7 +60,7 @@ export default {
   },
   data: function() {
     return {
-      themeMode: "dark",
+      themeMode: "dark"
     };
   },
   components: {
@@ -81,7 +81,7 @@ export default {
     let theme = params.get("theme");
     let lang = params.get("lang");
 
-    if(lang && this.$i18n.messages[lang]) {
+    if (lang && this.$i18n.messages[lang]) {
       this.$i18n.locale = lang;
     }
     if (theme) {
@@ -105,24 +105,34 @@ export default {
 };
 </script>
 
+<style lang="scss">
+@import "@/assets/scss/_variables.scss";
+
+.scroller-light {
+  scrollbar-color: $primary $light;
+}
+.scroller-dark {
+  scrollbar-color: $secondary $dark;
+}
+</style>
 <style scoped>
 .light .bg-img-1 {
-  background-image: url("../public/images/img-light-1.webp");
+  background-image: url("@/../../public/images/img-light-1.webp");
 }
 .dark .bg-img-1 {
-  background-image: url("../public/images/img-dark-1.webp");
+  background-image: url("@/../../public/images/img-dark-1.webp");
 }
 .light .bg-img-2 {
-  background-image: url("../public/images/img-light-2.webp");
+  background-image: url("@/../../public/images/img-light-2.webp");
 }
 .dark .bg-img-2 {
-  background-image: url("../public/images/img-dark-2.webp");
+  background-image: url("@/../../public/images/img-dark-2.webp");
 }
 .light .bg-img-3 {
-  background-image: url("../public/images/img-light-3.webp");
+  background-image: url("@/../../public/images/img-light-3.webp");
 }
 .dark .bg-img-3 {
-  background-image: url("../public/images/img-dark-3.webp");
+  background-image: url("@/../../public/images/img-dark-3.webp");
 }
 
 .bg-img-parallax {

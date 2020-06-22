@@ -1,33 +1,27 @@
-.light .bg-primary {
-  background-color: $primary !important;
-}
-
-.dark .bg-primary {
-  background-color: $secondary !important;
-}
-
-.light .text-primary {
+.light {
+  .text-primary {
   color: $primary !important;
-}
-
-.dark .text-primary {
-  color: $secondary !important;
-}
-
-.light a {
-  color: $primary;
-  &:hover,
-  &:focus,
-  &:active {
-    color: darken($primary, 15%);
+  }
+  a {
+    color: $primary;
+    &:hover,
+    &:focus,
+    &:active {
+      color: darken($primary, 30%);
+    }
   }
 }
 
-.dark a {
-  color: $secondary;
-  &:hover,
-  &:focus,
-  &:active {
-    color: lighten($secondary, 15%);
+.dark {
+  .text-primary {
+  color: $secondary !important;
+  }
+  a {
+    color: $secondary;
+    &:hover,
+    &:focus,
+    &:active {
+      color: lighten($secondary, 20%);
+    }
   }
 }

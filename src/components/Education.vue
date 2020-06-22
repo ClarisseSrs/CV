@@ -8,11 +8,11 @@
         :key="index">
         <div class="resume-content">
           <h3 class="mb-0">{{ education.school }}</h3>
-          <div class="subheading mb-3">
+          <h4 class="subheading mb-3">
             <a :href="education.url" target="_blank" rel='noopener' v-if="education.url">{{ education.degree }}</a>
             <span v-else>{{ education.degree }}</span>
-          </div>
-          <div class="lead font-weight-bold">{{ education.program }}</div>
+          </h4>
+          <div class="lead font-weight-bold"><p>{{ education.program }}</p></div>
         </div>
         <div class="resume-date text-md-right">
           <span

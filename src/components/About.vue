@@ -11,7 +11,7 @@
           :href="'mailto:' + email"
         >{{ email }}</a>
       </div>
-      <p class="mb-5 lead font-weight-bold" v-html="$t('about.aboutText')"></p>
+      <div class="mb-5 lead font-weight-bold" v-html="$t('about.aboutText')"></div>
       <div class="d-flex justify-content-between">
         <div class="social-icons">
           <a
@@ -20,6 +20,8 @@
             rel="noopener"
             v-for="(social, index) in socialList"
             :key="index"
+            :title="`${$t('about.visitMy')} ${social.name}`"
+            :alt="`${$t('about.iconOf')} ${social.name}`"
           >
             <font-awesome-icon :icon="['fab', social.icon]"></font-awesome-icon>
           </a>
@@ -118,3 +120,42 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+@import "@/assets/scss/_variables.scss";
+
+.social-icons {
+  a {
+    display: inline-block;
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 3.5rem;
+    margin-right: 1rem;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.light .social-icons {
+  a {
+    background-color: $primary;
+    color: $white !important;
+    &:hover {
+      background-color: darken($color: $primary, $amount: 15);
+    }
+  }
+}
+.dark .social-icons {
+  a {
+    background-color: $secondary;
+    color: $dark !important;
+    &:hover {
+      background-color: lighten($color: $secondary, $amount: 15);
+    }
+  }
+}
+</style>
