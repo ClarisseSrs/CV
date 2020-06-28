@@ -1,6 +1,6 @@
 # Introduction
 
-This is a Bootstrap/Vue resume forked from [webdevsuperfast](https://github.com/webdevsuperfast/startbootstrap-resume-vue) github
+This is a Bootstrap/Vue resume forked from [webdevsuperfast](https://github.com/webdevsuperfast/startbootstrap-resume-vue) github.
 
 ## Building from Source
 
@@ -16,12 +16,24 @@ This is a Bootstrap/Vue resume forked from [webdevsuperfast](https://github.com/
 
 ## Deploying to Gitlab Pages
 
-1. By pushing a commit to a Gitlab's hosted repository, `.gitlab-ci.yml` will trigger the CI and build/deploy your page.
-2. Once the job done, your page will be found at <account_name>.gitlab.io/<project_name>
+1. In `vue.config.js`, change `publicPath` value by the commented one.
+2. Now pushing a commit to a Gitlab's hosted repository, will trigger the CI (Gitlab will see the presence of the `.gitlab-ci.yml` file) and build/deploy your Page.
+3. Once the job done, your page will be found at <account_name>.gitlab.io/<project_name>
 
 **Note:** Add `[ci skip]` in (one of) your commits' message to prevent the CI to run, usefull when you only want to update the Readme or push a non-tested feature on master.
 
 **Note:** VueJS also published a guide to deploy VueJS sites to other platforms, checkout the [deployment](https://cli.vuejs.org/guide/deployment.html) documentation for other platforms or [the forked repo](https://github.com/webdevsuperfast/startbootstrap-resume-vue) which deploy on GitHub pages.
+
+### Customize your Page URL
+
+Gitlab allows ONE of your Page to be at the root of your gitlab.io URL.
+
+1. Change your Gitlab's repo settings in Parameters/General/Advanced/Change path the value
+to `https://gitlab.com/<YourAccountName>/ <YourAccountName>.gitlab.io`.Your page will then be found at `<account_name>.gitlab.io`.
+2. But now, you must tell your static website to be linked to this URL : in `vue.config.js`, check that the `publicPath` is set to '/'
+then publish changes (CI must run).
+3. Go to <account_name>.gitlab.io/ and check your Page.
+4. [Optional] If you have a custom URL to point to this page, follow [this tutorial](https://gitlab.com/help/user/project/pages/custom_domains_ssl_tls_certification/index.md) to change the URL to yours. Adding a CNAME record in your DNS is cleaner and faster than a redirection.
 
 ## Customize
 If you want to use this template as it and only import your data, please follow these steps:
@@ -34,7 +46,9 @@ If you want to use this template as it and only import your data, please follow 
 * To customize 'tools and languages' icons, go to `src/coponents/Skills.vue` and change `toolsList` (if you add new icons here, don't forget to modify your libraries' imports in `main.js`).
 * In `assets/scss/_variables_.scss` change 'primary' and 'secondary' colors to the ones suiting you.
 
-For more customisation, feel free to change the CSS/SCSS from `.vue` files or style files in `assets/scss` then change/add/delete Vue components to get the resume you want.
+For more customization, feel free to change the CSS/SCSS from `.vue` files or style files in `assets/scss` then change/add/delete Vue components to get the resume you want.
+
+**TIPS:** Check basic metrics with [lighthouse](https://web.dev/measure/) when deploying your Page.
 
 ## Features
 
