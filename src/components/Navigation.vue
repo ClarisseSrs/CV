@@ -14,62 +14,71 @@
     <b-navbar-toggle target="navbarSupportedContent"></b-navbar-toggle>
     <b-collapse id="navbarSupportedContent" is-nav>
       <b-navbar-nav v-b-scrollspy>
-        <b-nav-item
-          v-for="(nav, index) in $t('navigation.listNav')"
-          :key="index"
-          class="js-scroll-trigger"
-          :href="'#'+index"
-        >{{ nav }}</b-nav-item>
-        <hr />
-        <b-nav-item>
-          <b-button
-            :variant="outlineBtn"
-            v-on:click="toggleTheme()"
-            :title="$t('navigation.changeTheme')"
-          >
-            <font-awesome-icon size="2x" :icon="[themeMode==='light'?'fas':'far', 'lightbulb']"></font-awesome-icon>
-          </b-button>
-        </b-nav-item>
-        <b-nav-item>
-          <b-button
-            :variant="outlineBtn"
-            v-b-modal.modal-languages
-            :title="$t('navigation.language')"
-          >
-            <font-awesome-icon icon="language" size="2x"></font-awesome-icon>
-          </b-button>
-        </b-nav-item>
-        <b-modal
-        static="true"
-          :body-bg-variant="bgColor"
-          :header-bg-variant="bgColor"
-          :body-text-variant="textColor"
-          :header-text-variant="textColor"
-          id="modal-languages"
-          :title="$t('navigation.selectYourLanguage')"
-          hide-footer
-          centered
-          return-focus="null"
-          size="sm"
-        >
-          <div class="text-center">
-            <b-button
-              class="col-sm-12 mb-1 btn-language"
-              v-for="(lang, id) in languages"
-              :key="id"
-              @click="changeLocale(lang.language)"
-              :variant="outlineColor"
-              :pressed="isLanguageSelected(lang.language)"
-              :lang="lang.language"
-              squared
-            >
-              <flag :iso="lang.flag" v-bind:squared="false" />
-              {{lang.name}}
-              <font-awesome-icon :icon="['fas', 'check']" v-if="isLanguageSelected(lang.language)"></font-awesome-icon>
-              <label v-else></label>
-            </b-button>
+        <div class="d-lg-block d-flex justify-content-between">
+          <div>
+            <b-nav-item
+              v-for="(nav, index) in $t('navigation.listNav')"
+              :key="index"
+              class="js-scroll-trigger"
+              :href="'#'+index"
+            >{{ nav }}</b-nav-item>
           </div>
-        </b-modal>
+            <hr class="d-lg-block d-none invisible" />
+          <div>
+            <b-nav-item class="float-lg-none float-right">
+              <b-button
+                :variant="outlineBtn"
+                v-on:click="toggleTheme()"
+                :title="$t('navigation.changeTheme')"
+              >
+                <font-awesome-icon size="2x" :icon="[themeMode==='light'?'fas':'far', 'lightbulb']"></font-awesome-icon>
+              </b-button>
+            </b-nav-item>
+            <b-nav-item>
+              <b-button
+                :variant="outlineBtn"
+                v-b-modal.modal-languages
+                :title="$t('navigation.language')"
+              >
+                <font-awesome-icon icon="language" size="2x"></font-awesome-icon>
+              </b-button>
+            </b-nav-item>
+            <b-modal
+              :static="false"
+              :body-bg-variant="bgColor"
+              :header-bg-variant="bgColor"
+              :body-text-variant="textColor"
+              :header-text-variant="textColor"
+              id="modal-languages"
+              :title="$t('navigation.selectYourLanguage')"
+              hide-footer
+              centered
+              return-focus="null"
+              size="sm"
+            >
+              <div class="text-center">
+                <b-button
+                  class="col-sm-12 mb-1 btn-language"
+                  v-for="(lang, id) in languages"
+                  :key="id"
+                  @click="changeLocale(lang.language)"
+                  :variant="outlineColor"
+                  :pressed="isLanguageSelected(lang.language)"
+                  :lang="lang.language"
+                  squared
+                >
+                  <flag :iso="lang.flag" v-bind:squared="false" />
+                  {{lang.name}}
+                  <font-awesome-icon
+                    :icon="['fas', 'check']"
+                    v-if="isLanguageSelected(lang.language)"
+                  ></font-awesome-icon>
+                  <label v-else></label>
+                </b-button>
+              </div>
+            </b-modal>
+          </div>
+        </div>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
