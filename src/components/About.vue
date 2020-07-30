@@ -93,7 +93,7 @@ export default {
         town: "Lille",
         zip: "59000"
       },
-      email: "eduard.francois@linux.com",
+      email: "edouard.francois@linux.com",
       socialList: [
         {
           name: "Gitlab",
