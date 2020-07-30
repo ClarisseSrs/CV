@@ -2,6 +2,18 @@
     "positions": "postes",
     "positionList": [
         {
+            "position": "Développeur Full-Stack",
+            "company": "Sarbacane",
+            "url": "https://www.sarbacane.com/",
+            "summary": "Développeur Full-Stack pour des plateformes de marketing numérique (page de présentation, automatisation, notification et campagne mail ou SMS).",
+            "dates": [
+                {
+                    "start": "Juillet 2020",
+                    "end": "Présent"
+                }
+            ]
+        },
+        {
             "position": "Consultant en Simulation",
             "company": "ALTEN",
             "url": "https://www.alten.fr/",
@@ -9,7 +21,7 @@
             "dates": [
                 {
                     "start": "Juillet 2018",
-                    "end": "Présent"
+                    "end": "Juillet 2020"
                 }
             ]
         },
