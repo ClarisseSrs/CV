@@ -61,6 +61,7 @@ For more customization, feel free to change the CSS/SCSS from `.vue` files or st
 * [Pexels](https://www.pexels.com) for background images
 * [Pixabay](https://pixabay.com) for background images
 * [SVG-Porn](https://github.com/gilbarbara/logos)
+* [coreUi](https://github.com/coreui/coreui-icons)
 * [Webdevsuperfast](https://github.com/webdevsuperfast/startbootstrap-resume-vue)
 * [StartBootstrap Resume](https://github.com/BlackrockDigital/startbootstrap-resume)
 * [i18n Vue](https://kazupon.github.io/vue-i18n/introduction.html) for internationalization

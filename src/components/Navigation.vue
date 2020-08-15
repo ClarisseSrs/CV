@@ -23,7 +23,7 @@
               :href="'#'+index"
             >{{ nav }}</b-nav-item>
           </div>
-            <hr class="d-lg-block d-none invisible" />
+          <hr class="d-lg-block d-none invisible" />
           <div>
             <b-nav-item class="float-lg-none float-right">
               <b-button
@@ -88,65 +88,65 @@
 import { eventBus } from "@/main";
 
 export default {
-  beforeMount: function() {
-    eventBus.$on("themeSelection", theme => {
+  beforeMount: function () {
+    eventBus.$on("themeSelection", (theme) => {
       this.themeMode = theme === "dark" ? "dark" : "light";
       this.themeChange();
     });
   },
-  mounted: function() {
+  mounted: function () {
     this.themeMode = window.matchMedia("(prefers-color-scheme: light)").matches
       ? "light"
       : "dark";
     this.themeChange();
   },
   computed: {
-    outlineBtn: function() {
+    outlineBtn: function () {
       return this.themeMode === "dark" ? "outline-dark" : "outline-light";
     },
-    outlineColor: function() {
+    outlineColor: function () {
       return this.themeMode === "dark"
         ? "outline-secondary"
         : "outline-primary";
     },
-    bgColor: function() {
+    bgColor: function () {
       return this.themeMode;
     },
-    textColor: function() {
+    textColor: function () {
       return this.themeMode === "dark" ? "light" : "dark";
     },
-    languages: function() {
+    languages: function () {
       let tbr = [];
       for (let lang in this.$i18n.messages) {
         tbr.push({
           name: this.$i18n.messages[lang].lang,
           flag: this.$i18n.messages[lang].flag,
-          language: lang
+          language: lang,
         });
       }
       return tbr;
-    }
+    },
   },
   methods: {
-    isLanguageSelected: function(lang) {
+    isLanguageSelected: function (lang) {
       return lang === this.$i18n.locale;
     },
-    changeLocale: function(locale) {
+    changeLocale: function (locale) {
       this.$i18n.locale = locale;
     },
-    toggleTheme: function() {
+    toggleTheme: function () {
       this.themeMode = this.themeMode === "light" ? "dark" : "light";
       this.themeChange();
     },
-    themeChange: function() {
+    themeChange: function () {
       eventBus.$emit("themeChange", this.themeMode);
-    }
+    },
   },
-  data: function() {
+  data: function () {
     return {
-      themeMode: "dark"
+      themeMode: "dark",
     };
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>
