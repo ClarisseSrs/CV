@@ -49,12 +49,12 @@
             "link": "https://vuejs.org/"
         },
         "Unity": {
-            "wikiQuery": "Unity_(moteur_de_jeu)",
-            "link": "https://unity.com/fr"
+            "wikiQuery": "Unity_(game_engine)",
+            "link": "https://unity.com/"
         },
         "Java": {
             "wikiQuery": "Java_(langage)",
-            "link": "https://www.java.com/fr/"
+            "link": "https://www.java.com/"
         },
         "HLA": {
             "wikiQuery": "High_Level_Architecture",
