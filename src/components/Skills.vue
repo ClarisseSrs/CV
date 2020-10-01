@@ -211,9 +211,7 @@ export default {
       this.showInfoWiki = false;
       this.currentTool = toolName;
       this.currentToolInfo = this.$t("skills.toolsInfoMap")[toolName];
-      console.log(toolName);
       if (!this.currentToolInfo) {
-        console.log("not found");
         return;
       }
       if (this.currentToolInfo.wikiExtract) {
