@@ -562,7 +562,7 @@
             "entity": "NDA high school ",
             "info": {
                 "url": "https://gitlab.com/psyked/youshi",
-                "description": "Creating a 2D copperation game in a 3 men team.",
+                "description": "Creating a 2D cooperative game in a 3 men team.",
                 "tools": [
                     {
                         "name": "minGW"
@@ -591,7 +591,7 @@
             "entity": "Personnal",
             "info": {
                 "url": "http://git.psyked.fr",
-                "description": "All kind developments for personal projects to test new languages, technologies, etx. Ex: static sites hosting, python cron-like development for RapsberryPi, IoT development on ESP-12, etc.",
+                "description": "All kind developments for personal projects to test new languages, technologies, etc. Ex: static sites hosting, python cron-like development for RapsberryPi, IoT development on ESP-12, etc.",
                 "tools": [
                     {
                         "name": "VS Code"

@@ -19,10 +19,16 @@ body {
 body .dark {
   background-color: $dark;
   color: $light;
+  .toolLink :hover {
+      color: $secondary;
+    }
 }
 body .light {
   color: $dark;
   background-color: $light;
+  .toolLink :hover {
+      color: $primary;
+    }
 }
 @media (min-width: 992px) {
   body {

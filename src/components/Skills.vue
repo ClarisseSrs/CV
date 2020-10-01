@@ -1,21 +1,31 @@
 <template>
-  <section id="skills" class="resume-section p-3 p-lg-5 d-flex align-items-center">
+  <section
+    id="skills"
+    class="resume-section p-3 p-lg-5 d-flex align-items-center"
+  >
     <div class="w-100">
-      <h2 class="mb-5">{{$t('skills.skills')}}</h2>
-      <div class="subheading mb-3">{{$t('skills.tools')}} &amp; {{$t('skills.languages')}}</div>
+      <h2 class="mb-5">{{ $t("skills.skills") }}</h2>
+      <div class="subheading mb-3">
+        {{ $t("skills.tools") }} &amp; {{ $t("skills.languages") }}
+      </div>
       <ul class="list-inline dev-icons">
         <li
           class="list-inline-item"
-          v-for="(tools, index) in toolsList"
+          v-for="(tool, index) in toolsList"
           :key="index"
-          :title="tools.name"
+          :title="tool.title"
+          v-on:click="selectTool(tool.name)"
+          v-b-modal.modal-tool
         >
-          <font-awesome-icon :icon="['fab', tools.icon]" v-if="tools.icon"></font-awesome-icon>
+          <font-awesome-icon
+            :icon="['fab', tool.icon]"
+            v-if="tool.icon"
+          ></font-awesome-icon>
           <svg
             class="svg-inline--fa fa-w-14"
             viewBox="0 0 256 256"
-            v-html="tools.rawSVG"
-            v-show="tools.rawSVG"
+            v-html="tool.rawSVG"
+            v-show="tool.rawSVG"
           />
         </li>
       </ul>
@@ -27,20 +37,30 @@
         :title="$t('skills.toggleDisplay')"
       >
         <font-awesome-icon
-          :icon="['fa', showDetailProjects?'minus-square':'plus-square']"
+          :icon="['fa', showDetailProjects ? 'minus-square' : 'plus-square']"
           class="text-info mr-1"
         ></font-awesome-icon>
-        {{$t('skills.details')}}
+        <label>
+          {{ $t("skills.details") }}
+        </label>
+        <span v-show="showDetailProjects">
+          ({{ $t("skills.clickOnLinkToSeeDetails") }})
+        </span>
       </div>
       <transition name="bounce">
         <div v-show="showDetailProjects" class="mb-1 text-justify">
-          <span v-for="(tool, index) in mapToolsToReferences" :key="index">
+          <span
+            class="toolLink"
+            v-for="(tool, index) in mapToolsToReferences"
+            :key="index"
+          >
             &#160;
             <a
               v-b-modal.modal-tool
               v-on:click="selectTool(tool[0])"
               :title="$tc('skills.reference', tool[1].length)"
-            >&bull;{{tool[0]}}</a>
+              >&bull;{{ tool[0] }}</a
+            >
           </span>
         </div>
       </transition>
@@ -58,18 +78,23 @@
         size="lg"
       >
         <div v-show="currentTool">
-          <div v-if="currentToolInfo && (currentToolInfo.wikiExtract || currentToolInfo.link)">
+          <div
+            v-if="
+              currentToolInfo &&
+              (currentToolInfo.wikiExtract || currentToolInfo.link)
+            "
+          >
             <p class="font-weight-bold clickable" v-on:click="toggleInfoWiki()">
               <font-awesome-icon
-                :icon="['fa', showInfoWiki?'minus-square':'plus-square']"
+                :icon="['fa', showInfoWiki ? 'minus-square' : 'plus-square']"
                 class="text-info mr-1"
               ></font-awesome-icon>
-              {{$t('skills.informations')}}
+              {{ $t("skills.informations") }}
             </p>
             <transition name="bounce">
               <div v-show="showInfoWiki">
                 <span v-show="currentToolInfo.wikiExtract">
-                  {{$t('skills.wikipediaExtract')}} :
+                  {{ $t("skills.wikipediaExtract") }} :
                   <blockquote
                     class="text-justify font-italic wiki-quote"
                     v-html="currentToolInfo.wikiExtract"
@@ -81,11 +106,9 @@
                   class="text-right"
                   v-show="currentToolInfo && currentToolInfo.link"
                 >
-                  <a
-                    :href="currentToolInfo.link"
-                    target="_blank"
-                    rel="noopener"
-                  >{{$t('skills.about')}} {{currentTool}}</a>
+                  <a :href="currentToolInfo.link" target="_blank" rel="noopener"
+                    >{{ $t("skills.about") }} {{ currentTool }}</a
+                  >
                 </p>
               </div>
             </transition>
@@ -104,28 +127,31 @@
               @row-clicked="selectProject"
             >
               <template v-slot:head(title)>
-                <span>{{$t('skills.title')}}</span>
+                <span>{{ $t("skills.title") }}</span>
               </template>
               <template v-slot:head(entity)>
-                <span>{{$t('skills.entity')}}</span>
+                <span>{{ $t("skills.entity") }}</span>
               </template>
             </b-table>
           </div>
         </div>
       </b-modal>
 
-      <div class="subheading mb-3">{{$t('skills.methods')}}</div>
+      <div class="subheading mb-3">{{ $t("skills.methods") }}</div>
       <ul class="fa-ul">
         <li
           v-for="(workflow, index) in $t('skills.workflowList')"
           :key="index"
           class="d-flex align-items-center"
         >
-          <font-awesome-icon :icon="['fas', 'check']" class="fa-li"></font-awesome-icon>
+          <font-awesome-icon
+            :icon="['fas', 'check']"
+            class="fa-li"
+          ></font-awesome-icon>
           {{ workflow }}
         </li>
       </ul>
-      <div class="subheading mb-3">{{$t('skills.miscellaneous')}}</div>
+      <div class="subheading mb-3">{{ $t("skills.miscellaneous") }}</div>
       <ul class="fa-ul mb-0">
         <li
           class="d-flex align-items-center"
@@ -133,7 +159,7 @@
           :key="index"
         >
           <span class="fa-li">&bull;</span>
-          {{misc}}
+          {{ misc }}
         </li>
       </ul>
     </div>
@@ -144,11 +170,11 @@
 import { eventBus } from "@/main";
 
 export default {
-  beforeCreate: function() {
-    eventBus.$on("toolSelection", toolName => {
+  beforeCreate: function () {
+    eventBus.$on("toolSelection", (toolName) => {
       this.selectTool(toolName);
     });
-    eventBus.$on("toolPopUp", toolName => {
+    eventBus.$on("toolPopUp", (toolName) => {
       if (!this.mapToolsToReferences.get(toolName)) {
         return;
       }
@@ -156,36 +182,38 @@ export default {
       this.showInfoWiki = true;
       this.$refs["modal-tool"].show();
     });
-    eventBus.$on("themeChange", themeMode => {
+    eventBus.$on("themeChange", (themeMode) => {
       this.themeMode = themeMode;
     });
   },
   computed: {
-    enableDarkTheme: function() {
+    enableDarkTheme: function () {
       return this.themeMode === "dark";
     },
-    bgColor: function() {
+    bgColor: function () {
       return this.themeMode;
     },
-    textColor: function() {
+    textColor: function () {
       return this.themeMode === "dark" ? "light" : "dark";
-    }
+    },
   },
   methods: {
-    toggleInfoWiki: function() {
+    toggleInfoWiki: function () {
       this.showInfoWiki = !this.showInfoWiki;
     },
-    selectProject: function(proj) {
+    selectProject: function (proj) {
       eventBus.$emit("projectSelection", proj.id);
     },
-    toggleDetailProjects: function() {
+    toggleDetailProjects: function () {
       this.showDetailProjects = !this.showDetailProjects;
     },
-    selectTool: function(toolName) {
+    selectTool: function (toolName) {
       this.showInfoWiki = false;
       this.currentTool = toolName;
       this.currentToolInfo = this.$t("skills.toolsInfoMap")[toolName];
+      console.log(toolName);
       if (!this.currentToolInfo) {
+        console.log("not found");
         return;
       }
       if (this.currentToolInfo.wikiExtract) {
@@ -196,24 +224,24 @@ export default {
         return;
       }
       fetch(this.$t("skills.baseURLWiki") + this.currentToolInfo.wikiQuery)
-        .then(res => res.json())
-        .then(json => {
+        .then((res) => res.json())
+        .then((json) => {
           this.currentToolInfo.wikiExtract = Object.values(
             json.query.pages
           )[0].extract;
           this.$forceUpdate();
         })
-        .catch(err => {
+        .catch((err) => {
           this.currentToolInfo.wikiExtract = this.$t("skills.errorExtractFail");
         });
-    }
+    },
   },
-  beforeMount: function() {
+  beforeMount: function () {
     // links each tool to every project using it
     let mapToolsToReferences = new Map();
     this.$t("projects.projectList").forEach((project, index) => {
       project.id = index;
-      project.info.tools.forEach(tool => {
+      project.info.tools.forEach((tool) => {
         if (!mapToolsToReferences.get(tool.name)) {
           mapToolsToReferences.set(tool.name, []);
         }
@@ -226,7 +254,7 @@ export default {
       )
     );
   },
-  data: function() {
+  data: function () {
     return {
       themeMode: "dark",
       mapToolsToReferences: new Map(),
@@ -237,16 +265,18 @@ export default {
       toolsList: [
         {
           name: "C#",
+          title: "C#",
           rawSVG: `
             <path fill="currentColor" d="
               M255.569,84.72 C255.567,79.89 254.534,75.622 252.445,71.959 C250.393,68.357 247.32,65.338 243.198,62.951 C209.173,43.332 175.115,23.773 141.101,4.134 C131.931,-1.16 123.04,-0.967 113.938,4.403 C100.395,12.39 32.59,51.237 12.385,62.94 C4.064,67.757 0.015,75.129 0.013,84.711 C0,124.166 0.013,163.62 0,203.076 C0.002,207.8 0.991,211.985 2.988,215.593 C5.041,219.304 8.157,222.406 12.374,224.847 C32.58,236.55 100.394,275.394 113.934,283.383 C123.04,288.756 131.931,288.948 141.104,283.652 C175.119,264.012 209.179,244.454 243.209,224.835 C247.426,222.395 250.542,219.291 252.595,215.583 C254.589,211.975 255.58,207.79 255.582,203.065 C255.582,203.065 255.582,124.176 255.569,84.72
               M201.892326,116.294008 L201.892326,129.767692 L215.36601,129.767692 L215.36601,116.294008 L222.102852,116.294008 L222.102852,129.767692 L235.576537,129.767692 L235.576537,136.504534 L222.102852,136.504534 L222.102852,149.978218 L235.576537,149.978218 L235.576537,156.71506 L222.102852,156.71506 L222.102852,170.188744 L215.36601,170.188744 L215.36601,156.71506 L201.892326,156.71506 L201.892326,170.188744 L195.155484,170.188744 L195.155484,156.71506 L181.6818,156.71506 L181.6818,149.978218 L195.155484,149.978218 L195.155484,136.504534 L181.6818,136.504534 L181.6818,129.767692 L195.155484,129.767692 L195.155484,116.294008 L201.892326,116.294008 Z M215.36601,136.504534 L201.892326,136.504534 L201.892326,149.978218 L215.36601,149.978218 L215.36601,136.504534
               M128.456752,48.625876 C163.600523,48.625876 194.283885,67.7121741 210.718562,96.0819435 L210.558192,95.808876 L169.209615,119.617159 C161.062959,105.823554 146.128136,96.5150717 128.996383,96.3233722 L128.456752,96.3203544 C102.331178,96.3203544 81.1506705,117.499743 81.1506705,143.625316 C81.1506705,152.168931 83.4284453,160.17752 87.3896469,167.094792 C95.543745,181.330045 110.872554,190.931398 128.456752,190.931398 C146.149522,190.931398 161.565636,181.208041 169.67832,166.820563 L169.481192,167.165876 L210.767678,191.083913 C194.51328,219.21347 164.25027,238.240861 129.514977,238.620102 L128.456752,238.625876 C93.2021701,238.625876 62.4315028,219.422052 46.0382398,190.902296 C38.0352471,176.979327 33.4561922,160.837907 33.4561922,143.625316 C33.4561922,91.1592636 75.9884604,48.625876 128.456752,48.625876
             "/>
-          `
+          `,
         },
         {
           name: "C++",
+          title: "C++",
           rawSVG: `
             <path fill="currentColor" d="
               M255.569,84.72 C255.567,79.89 254.534,75.622 252.445,71.959 C250.393,68.357 247.32,65.338 243.198,62.951 C209.173,43.332 175.115,23.773 141.101,4.134 C131.931,-1.16 123.04,-0.967 113.938,4.403 C100.395,12.39 32.59,51.237 12.385,62.94 C4.064,67.757 0.015,75.129 0.013,84.711 C0,124.166 0.013,163.62 0,203.076 C0.002,207.8 0.991,211.985 2.988,215.593 C5.041,219.304 8.157,222.406 12.374,224.847 C32.58,236.55 100.394,275.394 113.934,283.383 C123.04,288.756 131.931,288.948 141.104,283.652 C175.119,264.012 209.179,244.454 243.209,224.835 C247.426,222.395 250.542,219.291 252.595,215.583 C254.589,211.975 255.58,207.79 255.582,203.065 C255.582,203.065 255.582,124.176 255.569,84.72
@@ -254,18 +284,21 @@ export default {
               M213.253,148.661 L203.532,148.661 L203.532,158.385 L193.81,158.385 L193.81,148.661 L184.088,148.661 L184.088,138.94 L193.81,138.94 L193.81,129.218 L203.532,129.218 L203.532,138.94 L213.253,138.94 L213.253,148.661
               M128.456752,48.625876 C163.600523,48.625876 194.283885,67.7121741 210.718562,96.0819435 L210.558192,95.808876 L169.209615,119.617159 C161.062959,105.823554 146.128136,96.5150717 128.996383,96.3233722 L128.456752,96.3203544 C102.331178,96.3203544 81.1506705,117.499743 81.1506705,143.625316 C81.1506705,152.168931 83.4284453,160.17752 87.3896469,167.094792 C95.543745,181.330045 110.872554,190.931398 128.456752,190.931398 C146.149522,190.931398 161.565636,181.208041 169.67832,166.820563 L169.481192,167.165876 L210.767678,191.083913 C194.51328,219.21347 164.25027,238.240861 129.514977,238.620102 L128.456752,238.625876 C93.2021701,238.625876 62.4315028,219.422052 46.0382398,190.902296 C38.0352471,176.979327 33.4561922,160.837907 33.4561922,143.625316 C33.4561922,91.1592636 75.9884604,48.625876 128.456752,48.625876
             "/>
-          `
+          `,
         },
         {
           name: "Java",
-          icon: "java"
+          title: "Java 6 -> 12",
+          icon: "java",
         },
         {
           name: "Python",
-          icon: "python"
+          title: "Python",
+          icon: "python",
         },
         {
-          name: "Typescript",
+          name: "TypeScript",
+          title: "TypeScript",
           rawSVG: `
             <mask id="tsMask">
               <rect width="100%" height="100%" fill="white"/>
@@ -275,27 +308,31 @@ export default {
               "/>
             </mask>
           <rect fill="currentColor" width="100%" height="100%" mask="url(#tsMask)" />
-        `
+        `,
         },
         {
           name: "Vue.JS",
-          icon: "vuejs"
+          title: "Vue.JS",
+          icon: "vuejs",
         },
         {
           name: "Unity",
-          icon: "unity"
+          title: "Unity 3D",
+          icon: "unity",
         },
         {
-          name: "Windows (servers)",
-          icon: "windows"
+          name: "Windows",
+          title: "Windows (10/servers)",
+          icon: "windows",
         },
         {
-          name: "Linux (Ubuntu/WSL)",
-          icon: "linux"
-        }
-      ]
+          name: "Linux",
+          title: "Linux (Ubuntu/WSL)",
+          icon: "linux",
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -308,23 +345,16 @@ export default {
 .dev-icons {
   font-size: 3rem;
   .list-inline-item {
+    cursor: pointer;
     &:not(:last-child) {
       margin-right: 1rem;
     }
   }
 }
-.dark .dev-icons {
-  svg {
-    &:hover {
-      color: $secondary;
-    }
-  }
+.dark .dev-icons :hover {
+  color: $secondary;
 }
-.light .dev-icons {
-  svg {
-    &:hover {
-      color: $primary;
-    }
-  }
+.light .dev-icons :hover {
+  color: $primary;
 }
 </style>

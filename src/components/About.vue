@@ -19,6 +19,7 @@
             target="_blank"
             rel="noopener"
             v-for="(social, index) in socialList"
+            class="mb-1"
             :key="index"
             :title="`${$t('about.visitMy')} ${social.name}`"
             :alt="`${$t('about.iconOf')} ${social.name}`"

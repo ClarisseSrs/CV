@@ -45,7 +45,9 @@
                 </a>
                 <p class="contrast-text text-justify mb-1 mt-1">{{ project.info.description }}</p>
                 <div v-show="project.info.tools" class="mb-1 text-justify font-italic">
-                  <span v-for="(tool, index) in project.info.tools" :key="index">
+                  <span
+                    class="toolLink"
+                    v-for="(tool, index) in project.info.tools" :key="index">
                     &#160;
                     <a
                       v-b-modal.modal-tool
