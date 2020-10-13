@@ -14,7 +14,7 @@
           v-for="(tool, index) in toolsList"
           :key="index"
           :title="tool.title"
-          v-on:click="selectTool(tool.name)"
+          v-on:click="selectTool(tool.name, tool.aliases)"
           v-b-modal.modal-tool
         >
           <font-awesome-icon
@@ -113,7 +113,7 @@
               </div>
             </transition>
           </div>
-          <div v-show="mapToolsToReferences.get(currentTool)">
+          <div v-show="getReferencesCurrentTool()">
             <b-table
               :dark="enableDarkTheme"
               striped
@@ -121,7 +121,7 @@
               :selectable="true"
               select-mode="single"
               sticky-header
-              :items="mapToolsToReferences.get(currentTool)"
+              :items="getReferencesCurrentTool()"
               :fields="['title', 'entity']"
               sort-by="entity"
               @row-clicked="selectProject"
@@ -198,6 +198,18 @@ export default {
     },
   },
   methods: {
+    getReferencesCurrentTool: function () {
+      let refs = this.mapToolsToReferences.get(this.currentTool);
+      if (refs && this.currentAliases) {
+        this.currentAliases.forEach((alias) => {
+          let refAlias = this.mapToolsToReferences.get(alias);
+          if (refAlias) {
+            refs = refs.concat(refAlias);
+          }
+        });
+      }
+      return refs;
+    },
     toggleInfoWiki: function () {
       this.showInfoWiki = !this.showInfoWiki;
     },
@@ -207,9 +219,10 @@ export default {
     toggleDetailProjects: function () {
       this.showDetailProjects = !this.showDetailProjects;
     },
-    selectTool: function (toolName) {
+    selectTool: function (toolName, aliases) {
       this.showInfoWiki = false;
       this.currentTool = toolName;
+      this.currentAliases = aliases;
       this.currentToolInfo = this.$t("skills.toolsInfoMap")[toolName];
       if (!this.currentToolInfo) {
         return;
@@ -325,6 +338,7 @@ export default {
         },
         {
           name: "Linux",
+          aliases: ["WSL", "Ubuntu"],
           title: "Linux (Ubuntu/WSL)",
           icon: "linux",
         },
