@@ -17,7 +17,7 @@
             "school": "Institut Supérieur d'électronique et du Numérique - Lille",
             "degree": "Cybersecurity Engineer",
             "program": "Cybersecurity",
-            "url": "https://www.isen-lille.fr/formation/cycle-ingenieur/domaines-de-professionnalisation/cybersecurite/",
+            "url": "https://www.isen-lille.fr/formations/ingenieur-numerique/cybersecurite/",
             "dates": [
                 {
                     "start": "September 2015",
@@ -28,8 +28,8 @@
         {
             "school": "Institut Supérieur d'électronique et du Numérique - Lille",
             "degree": "Bachelor",
-            "program": "Computer Science and Network",
-            "url": "https://www.isen-lille.fr/formation/cycle-preparatoire/cycle-preparatoire-informatique-et-reseaux/",
+            "program": "Computer Science and Networks",
+            "url": "https://www.isen-lille.fr/formations/prepa-ingenieur/prepa-informatique/",
             "dates": [
                 {
                     "start": "September 2013",
