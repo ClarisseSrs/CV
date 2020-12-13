@@ -7,7 +7,7 @@ Vue.use(BootstrapVue)
 
 // Font Awesome Vue
 import {
-  faLinkedin, faGitlab, faFacebook, faJava, faPython, faVuejs, faCss3Alt, faJsSquare, faHtml5, faNodeJs,
+  faLinkedin, faGitlab, faFacebook, faInstagram, faJava, faPython, faVuejs, faCss3Alt, faJsSquare, faHtml5, faNodeJs,
   faAngular, faWordpress, faYarn, faUnity, faWindows, faLinux
 } from '@fortawesome/free-brands-svg-icons'
 import { faTrophy, faCheck, faMinusSquare, faPlusSquare, faAdjust, faLanguage } from '@fortawesome/free-solid-svg-icons'
@@ -18,7 +18,7 @@ import { dom, library } from '@fortawesome/fontawesome-svg-core'
 
 dom.watch()
 
-library.add(faLinkedin, faGitlab, faFacebook, faJava, faPython, faVuejs, faCss3Alt, faJsSquare, faHtml5, faNodeJs, faLanguage, fasLightBulb, farLightBulb,
+library.add(faLinkedin, faGitlab, faFacebook, faInstagram, faJava, faPython, faVuejs, faCss3Alt, faJsSquare, faHtml5, faNodeJs, faLanguage, fasLightBulb, farLightBulb,
   faAngular, faWordpress, faYarn, faUnity, faWindows, faLinux, faTrophy, faCheck, faMinusSquare, faPlusSquare, faAdjust)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

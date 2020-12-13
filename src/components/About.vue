@@ -15,12 +15,12 @@
       <div class="d-flex justify-content-between">
         <div class="social-icons">
           <a
-            :href="social.url"
             target="_blank"
+            class="mb-1"
             rel="noopener"
             v-for="(social, index) in socialList"
-            class="mb-1"
             :key="index"
+            :href="social.url"
             :title="`${$t('about.visitMy')} ${social.name}`"
             :alt="`${$t('about.iconOf')} ${social.name}`"
           >
@@ -109,13 +109,18 @@ export default {
         },
         {
           name: "LinkedIn",
-          url: "https://www.linkedin.com/in/edouard-fran%C3%A7ois/",
+          url: "https://www.linkedin.com/in/edouard-fran%C3%A7ois",
           icon: "linkedin",
         },
         {
           name: "Facebook",
           url: "https://www.facebook.com/psyked222",
           icon: "facebook",
+        },
+        {
+          name: "Instagram",
+          url: "https://www.instagram.com/psyked22",
+          icon: "instagram",
         },
         {
           name: "BuyMeACoffee",
