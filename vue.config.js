@@ -1,7 +1,7 @@
 const GoogleFontsPlugin = require('google-fonts-plugin')
 
 module.exports = {
-  publicPath: '/',
+  // publicPath: process.env.NODE_ENV === 'production' ? `/${process.env.CI_PROJECT_NAME}/` : '/',
   // If you don't publish at the root of your Gitlab Page
   // publicPath: process.env.NODE_ENV === 'production' ? `/${process.env.CI_PROJECT_NAME}/` : '/',
   configureWebpack: {
