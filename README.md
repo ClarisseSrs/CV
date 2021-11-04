@@ -68,3 +68,4 @@ For more customization, feel free to change the CSS/SCSS from `.vue` files or st
 * [Bootstrap Vue](https://bootstrap-vue.js.org/)
 * [Font Awesome Vue](https://github.com/FortAwesome/vue-fontawesome)
 * [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
+* [vectorsmarket15](https://www.flaticon.com/)
