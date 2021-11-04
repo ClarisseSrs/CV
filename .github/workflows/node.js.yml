@@ -26,5 +26,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build 
+     
+    - run: yarn install --frozen-lockfile
+    - run: yarn run build
+    - run: mv public public-vue # GitLab Pages hooks on the public folder
+    - run: mv dist public # rename the dist folder (result of npm run build)
+    # optionally, you can activate gzip support wih the following line:
+    - run: find public -type f -regex '.*\.\(htm\|html\|txt\|text\|js\|css\)$' -exec gzip -f -k {} \;
