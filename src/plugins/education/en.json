@@ -2,38 +2,38 @@
     "diplomas": "diplomas",
     "educationList": [
         {
-            "school": "Université du Québec à Chicoutimi",
-            "degree": "Master of Computer Science",
-            "program": "Computer Science for Video Games",
-            "url": "https://www.uqac.ca/programme/1537-maitrise-en-informatique-jeux-video/",
+            "school": "Université de Lille",
+            "degree": "DEUST Library and documentation professions",
+            "program": "",
+            "url": "https://deccid.univ-lille.fr/sid/formation/deust-bibliotheques-documentation/",
             "dates": [
                 {
-                    "start": "August 2017",
-                    "end": "June 2018"
+                    "start": "September 2020",
+                    "end": "June 2022"
                 }
             ]
         },
         {
-            "school": "Institut Supérieur d'électronique et du Numérique - Lille",
-            "degree": "Cybersecurity Engineer",
-            "program": "Cybersecurity",
-            "url": "https://www.isen-lille.fr/formations/ingenieur-numerique/cybersecurite/",
+            "school": "Université de Lille",
+            "degree": "licence FOR FOREIGN AND REGIONAL LANGUAGES, LITERATURES AND CIVILIZATIONS - Russian course",
+            "program": "First year of degree.",
+            "url": "https://www.univ-lille.fr/formations/fr-00002626.html",
             "dates": [
                 {
-                    "start": "September 2015",
-                    "end": "June 2018"
+                    "start": "September 2019",
+                    "end": "June 2020"
                 }
             ]
         },
         {
-            "school": "Institut Supérieur d'électronique et du Numérique - Lille",
-            "degree": "Bachelor",
-            "program": "Computer Science and Networks",
-            "url": "https://www.isen-lille.fr/formations/prepa-ingenieur/prepa-informatique/",
+            "school": "high school diploma in literature - Lille",
+            "degree": "Free applicant",
+            "program": "Specialization in modern language 3: Russian.",
+            "url": "",
             "dates": [
                 {
-                    "start": "September 2013",
-                    "end": "June 2015"
+                    "start": " ",
+                    "end": "June 2018"
                 }
             ]
         }

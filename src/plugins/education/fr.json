@@ -2,38 +2,38 @@
     "diplomas": "diplômes",
     "educationList": [
         {
-            "school": "Université du Québec à Chicoutimi",
-            "degree": "Maîtrise d'informatique",
-            "program": "Informatique concentration Jeu Vidéo",
-            "url": "https://www.uqac.ca/programme/1537-maitrise-en-informatique-jeux-video/",
+            "school": "Université de Lille",
+            "degree": "DEUST Métiers des bibliothèques et de la documentation",
+            "program": "",
+            "url": "https://deccid.univ-lille.fr/sid/formation/deust-bibliotheques-documentation/",
             "dates": [
                 {
-                    "start": "Aout 2017",
-                    "end": "Juin 2018"
+                    "start": "Septembre 2020",
+                    "end": "Juin 2022"
                 }
             ]
         },
         {
-            "school": "Institut Supérieur d'électronique et du Numérique - Lille",
-            "degree": "Ingénieur Sécurité des Systèmes d’information",
-            "program": "Cybersécurité",
-            "url": "https://www.isen-lille.fr/formations/ingenieur-numerique/cybersecurite/",
+            "school": "Université de Lille",
+            "degree": "LICENCE LANGUES, LITTÉRATURES ET CIVILISATIONS ÉTRANGÈRES ET RÉGIONALES - Parcours Russe",
+            "program": "Première année de licence.",
+            "url": "https://www.univ-lille.fr/formations/fr-00002626.html",
             "dates": [
                 {
-                    "start": "Septembre 2015",
-                    "end": "Juin 2018"
+                    "start": "Septembre 2019",
+                    "end": "Juin 2020"
                 }
             ]
         },
         {
-            "school": "Institut Supérieur d'électronique et du Numérique - Lille",
-            "degree": "Bachelor",
-            "program": "Cycle Préparatoire Informatique et Réseaux",
-            "url": "https://www.isen-lille.fr/formations/prepa-ingenieur/prepa-informatique/",
+            "school": "Baccalauréat littéraire - Lille",
+            "degree": "Candidat libre",
+            "program": "Spécialisation langue vivante 3 : Russe.",
+            "url": "",
             "dates": [
                 {
-                    "start": "Septembre 2013",
-                    "end": "Juin 2015"
+                    "start": " ",
+                    "end": "Juin 2018"
                 }
             ]
         }

@@ -12,12 +12,14 @@
     "title": "Titre",
     "entity": "Entreprise",
     "methods": "méthodes",
-    "miscellaneous": "divers",
+    "miscellaneous": "Langues",
     "errorExtractFail": "Désolé, la récupération du résumé depuis Wikipédia a échoué.",
     "baseURLWiki": "https://fr.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&origin=*&titles=",
     "miscellaneousList": [
-        "Anglais B2 : Cambidge First Certificate",
-        "Permis B"
+        "Anglais B2",
+        "Russe A2",
+        "Néerlandais A1",
+        "Danois A1"
     ],
     "workflowList": [
         "Développement AGILE, Scrum",

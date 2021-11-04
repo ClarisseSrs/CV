@@ -1,23 +1,14 @@
 {
     "visitMy": "visite my",
     "iconOf":"icon of",
-    "aboutText": "<p>Passionate by informatic and development, i always have at least one side project on my desktop to improve existing skills or to acquire new knowledges about some technologies.</p><p>VideoGame Developer since senior year, i'm looking for projects mixing multidisciplinary skills and interacting with experts from various fields like development, network, cybersecurity, UI, UX, graphics, etc.</p>",
-    "thoughts": "Thoughts",
+    "aboutText":"<p>Attentive to the world around me I always have at least one personal project underway to further my knowledge or acquire new ones.</p><p>As a student in the library and documentation professions, I am currently in my second year and would like to go into the profession of library curator because I am passionate about the issues that this type of position involves.</p>",    "thoughts": "Thoughts",
     "miscellaneousThoughts": "miscellaneous thoughts",
     "nextThought": "Next thought",
     "thoughtList": [
         "❤ Wikipedia ❤",
         "Looking for cybersecurity training (advanced or beginner) ? <a class='text-info' href='https://sudo.pagerduty.com/' rel='noopener' target='_blank'>PagerDuty</a> is a good start.",
-        "Carmack > Romero",
         "Works better with Firefox ❤",
-        "In Web too, compiled code is faster than interpreted one. Only two decades passed before WebAssembly came out 🎉",
-        "Wozniak > Jobs",
         "You are spied ! This page uses your OS preferences to choose which color theme to use.",
-        "❤ Microsoft ❤",
-        "'toto', 'foo', 'bar', etc. are called metasyntactic variables.",
-        "C++ isn't a low level language.",
-        "IoT with ESP32 ❤",
-        "Sweet sweet C#'s syntaxic sugar 🍭",
         "You can save your navigation on this page using GET parameters 'theme', 'lang', 'projectId' and 'toolName'<br/> Like <a class='text-info' href='?theme=light&projectId=0&toolName=C%23&lang=en'>this</a>."
     ]
 }

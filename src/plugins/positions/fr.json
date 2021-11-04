@@ -2,38 +2,38 @@
     "positions": "postes",
     "positionList": [
         {
-            "position": "Développeur Full-Stack",
-            "company": "Sarbacane",
-            "url": "https://www.sarbacane.com/",
-            "summary": "Développeur Full-Stack pour des plateformes de marketing numérique (page de présentation, automatisation, notification et campagne mail ou SMS).",
+            "position": "Stagiaire ",
+            "company": " Bibliothèque universitaire Sciences humaines et sociales - Villeneuve d'Ascq",
+            "url": "https://bushs.univ-lille.fr/",
+            "summary": " Stage en bibliothèque universitaire : Accueil en banque de prêt (accueil des publics, renseignements, prêt, retour, recherche et rangement des documents). Mise en place d'une table thématique. Équipement des documents. Désherbage. Indexation. Bulletinage. Acquisition. Classification. Bibliographie. Utilisation de Colodus, Electre et du SIGB Alma nécessitant l'utilisation des bases Dewey, Rameau et Unimarc.",
             "dates": [
                 {
-                    "start": "Juillet 2020",
-                    "end": "Présent"
+                    "start": "Avril 2021",
+                    "end": "Mai 2021"
                 }
             ]
         },
         {
-            "position": "Consultant en Simulation",
-            "company": "ALTEN",
-            "url": "https://www.alten.fr/",
-            "summary": "Consultant ALTEN chez le client MBDA en tant que : référent C# .Net pour projet Unity, développeur applicatif pour différentes simulations de systèmes (JavaFX, Swing, Unity/C#, VBS3/C++17) et développeur full-stack pour outils de gestion de scénarios (OpenApi, Springboot, Vue.JS, Cesium.JS).",
+            "position": "Agent administratif - service de l'État civil",
+            "company": "Mairie de Lille",
+            "url": "https://www.lille.fr/",
+            "summary": "Traitement informatique des demandes d'actes d'état civil. Recherches et traitement des documents d'archive. Mise sous pli des courriers.",
             "dates": [
                 {
-                    "start": "Juillet 2018",
-                    "end": "Juillet 2020"
+                    "start": "Juillet 2019",
+                    "end": "Août 2019"
                 }
             ]
         },
         {
-            "position": "Stagiaire",
-            "company": "Oxya",
-            "url": "http://www.oxya.com/index.php",
-            "summary": "Stage en administration SAP et développement d'outils de documentation/administration : Gitlab CE/CI, Asciidoctor, Angular.JS, ASP.Net C#.",
+            "position": "Service civique",
+            "company": "Unis-Cité - Lens",
+            "url": "https://www.uniscite.fr/",
+            "summary": "Animations auprès de personnes âgées et de jeune public entre 12 et 25 ans. Sensibilisation et prévention dans les écoles et établissements de formation sur divers thémathiques (comme la formation à l'utilisation des outils numériques de façon claire et sécurisée). Création de projets éducatifs et de supports dans le cadre d'animations.",
             "dates": [
                 {
-                    "start": "Mai 2017",
-                    "end": "Août 2017"
+                    "start": "Octobre 2017",
+                    "end": "Juin 2018"
                 }
             ]
         }

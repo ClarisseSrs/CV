@@ -12,12 +12,14 @@
     "title": "Title",
     "entity": "Entity",
     "methods": "methods",
-    "miscellaneous": "miscellaneous",
+    "miscellaneous": "Languages",
     "errorExtractFail": "Sorry, data fetch failed for this tool",
     "baseURLWiki": "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&origin=*&titles=",
     "miscellaneousList": [
-        "English B2 : Cambridge First Certificate",
-        "Driver's license (car)"
+        "English B2",
+        "Russian A2",
+        "Dutch A1",
+        "Danish A1"
     ],
     "workflowList": [
         "AGILE, Scrum Development",
@@ -28,6 +30,10 @@
         "PowerShell": {
             "wikiQuery": "powershell",
             "link": "https://docs.microsoft.com/en-us/powershell/"
+        },
+        "Electre":{
+            "wikiQuery": "Électre_(bibliographie)",
+            "link": "https://blog-electre.com/v2/"
         },
         "C#": {
             "wikiQuery": "C_Sharp_(programming_language)",

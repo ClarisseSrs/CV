@@ -7,8 +7,8 @@ const messages = {
         lang: 'English',
         flag: 'us',
         name: {
-            first: "Édouard",
-            last: "François"
+            first: "Clarisse",
+            last: "SRSEN"
         },
         navigation: require("@/plugins/navigation/en.json"),
         about: require("@/plugins/about/en.json"),
@@ -22,8 +22,8 @@ const messages = {
         lang: 'Français',
         flag: 'fr',
         name: {
-            first: "Édouard",
-            last: "François"
+            first: "Clarisse",
+            last: "SRSEN"
         },
         navigation: require("@/plugins/navigation/fr.json"),
         about: require("@/plugins/about/fr.json"),

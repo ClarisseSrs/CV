@@ -2,37 +2,38 @@
     "positions": "positions",
     "positionList": [
         {
-            "position": "Full-Stack Developer",
-            "company": "Sarbacane",
-            "url": "https://www.sarbacane.com/",
-            "summary": "Full-Stack Developer for digital marketing platforms (landing page, mail/SMS automation, notification, campaign, etc. ).",
+            "position": "Intern ",
+            "company": " Bibliothèque universitaire Sciences humaines et sociales - Villeneuve d'Ascq",
+            "url": "https://bushs.univ-lille.fr/",
+            "summary": " Internship in a university library: Reception in a lending bank (reception of the public, information, lending, return, research and storage of documents). Setting up a thematic table. Equipment of the documents. Weeding. Indexing. Bulletinage. Acquisition. Classification. Bibliography. Use of Colodus, Electre and SIGB Alma requiring the use of Dewey, Rameau and Unimarc databases.",
             "dates": [
                 {
-                    "start": "July 2020",
-                    "end": "Present"
-                }
-            ]
-        },{
-            "position": "Simulation Developer Contractor",
-            "company": "ALTEN",
-            "url": "https://www.alten.fr/",
-            "summary": "Contractor ALTEN at MBDA as : reffering C# .Net for Unity project, application developer for various simulation systems (JavaFX, Swing, Unity/C#, VBS3/C++17) and full-stack developer for scenarios creation tools (OpenApi, Springboot, Vue.JS, Cesium.JS).",
-            "dates": [
-                {
-                    "start": "July 2018",
-                    "end": "July 2020"
+                    "start": "April 2021",
+                    "end": "May 2021"
                 }
             ]
         },
         {
-            "position": "Intern",
-            "company": "Oxya",
-            "url": "http://www.oxya.com/index.php",
-            "summary": "Internship SAP administration and documentation/administration tools development : Gitlab CE/CI, Asciidoctor, Angular.JS, ASP.Net C#.",
+            "position": "Administrative agent - civil status department",
+            "company": "Mairie de Lille",
+            "url": "https://www.lille.fr/",
+            "summary": "Computer processing of civil status applications. Research and processing of archive documents. Mailing of letters.",
             "dates": [
                 {
-                    "start": "May 2017",
-                    "end": "August 2017"
+                    "start": "July 2019",
+                    "end": "August 2019"
+                }
+            ]
+        },
+        {
+            "position": "Service civique",
+            "company": "Unis-Cité - Lens",
+            "url": "https://www.uniscite.fr/",
+            "summary": "Animations with elderly people and young people between 12 and 25 years old. Awareness raising and prevention in schools and training institutions on various themes (such as training in the use of digital tools in a clear and secure manner). Creation of educational projects and supports in the framework of animations.",
+            "dates": [
+                {
+                    "start": "October 2017",
+                    "end": "June 2018"
                 }
             ]
         }
