@@ -11,7 +11,7 @@
     "about": "about",
     "title": "Title",
     "entity": "Entity",
-    "methods": "methods",
+    "methods": "capabilities",
     "miscellaneous": "Languages",
     "errorExtractFail": "Sorry, data fetch failed for this tool",
     "baseURLWiki": "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&origin=*&titles=",
@@ -22,9 +22,12 @@
         "Danish A1"
     ],
     "workflowList": [
-        "AGILE, Scrum Development",
-        "Continuous Integration",
-        "TDD / BDD"
+        "Ability to adapt",
+        "Teamwork",
+        "Autonomy",
+        "Sense of responsibility",
+        "Strength of proposal",
+        "Project management
     ],
     "toolsInfoMap": {
         "PowerShell": {
