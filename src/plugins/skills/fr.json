@@ -11,7 +11,7 @@
     "about": "à propos",
     "title": "Titre",
     "entity": "Entreprise",
-    "methods": "méthodes",
+    "methods": "Aptitudes",
     "miscellaneous": "Langues",
     "errorExtractFail": "Désolé, la récupération du résumé depuis Wikipédia a échoué.",
     "baseURLWiki": "https://fr.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&origin=*&titles=",
@@ -22,9 +22,12 @@
         "Danois A1"
     ],
     "workflowList": [
-        "Développement AGILE, Scrum",
-        "Intégration Continue",
-        "TDD / BDD"
+        "Capacité d'adaptation",
+        "Travail en équipe",
+        "Autonomie",
+        "Sens des responsabilités",
+        "Force de proposition",
+        "Gestion de projet"
     ],
     "toolsInfoMap": {
         "PowerShell": {
