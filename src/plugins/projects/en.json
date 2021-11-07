@@ -9,7 +9,6 @@
             "function": "Front-End Developer",
             "entity": "personal",
             "info": {
-                "url": "https://gitlab.com/psyked/psyked.gitlab.io",
                 "description": "To create a resume based on skills and projects and to improve my Front-End skills, i forked the webdevsuperfast's repository then completed it to stick with my needs and to test some implementations/features. Special thanks to Gil Barbara for his SVG icons completing font-awesome's ones.",
                 "tools": [
                     {
