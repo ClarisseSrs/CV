@@ -264,7 +264,7 @@ export default {
         a[1].length < b[1].length ? 1 : -1
       )
     );
-  },
+  }
   data: function () {
     return {
       themeMode: "dark",
