@@ -7,6 +7,7 @@
     "reference": "no reference | one reference | {count} references",
     "about": "about",
     "title": "Title",
+    "toolinfomap" : "tools",
     "entity": "Entity",
     "methods": "capabilities",
     "miscellaneous": "Languages",
