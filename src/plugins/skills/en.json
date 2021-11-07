@@ -2,6 +2,7 @@
     "skills": "skills",
     "details": "details",
     "clickOnLinkToSeeDetails": "click on link to see details",
+    "toggleDisplay": "toggle display of detailed skills",
     "informations": "Informations",
     "wikipediaExtract": "Wikipedia extract",
     "reference": "no reference | one reference | {count} references",
@@ -26,5 +27,9 @@
         "Sense of responsibility",
         "Strength of proposal",
         "Project management"
-    ]
+    ],
+        "toolsInfoMap": {
+        "PowerShell": {
+}
+    }
 }
