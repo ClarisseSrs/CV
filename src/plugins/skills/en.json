@@ -4,7 +4,6 @@
     "tools": "tools",
     "details": "details",
     "clickOnLinkToSeeDetails": "click on link to see details",
-    "toggleDisplay": "toggle display of detailed skills",
     "informations": "Informations",
     "wikipediaExtract": "Wikipedia extract",
     "reference": "no reference | one reference | {count} references",
@@ -29,74 +28,5 @@
         "Strength of proposal",
         "Project management"
     ],
-    "toolsInfoMap": {
-        "PowerShell": {
-            "wikiQuery": "powershell",
-            "link": "https://docs.microsoft.com/en-us/powershell/"
-        },
-        "Electre":{
-            "wikiQuery": "Électre_(bibliographie)",
-            "link": "https://blog-electre.com/v2/"
-        },
-        "C#": {
-            "wikiQuery": "C_Sharp_(programming_language)",
-            "link": "https://docs.microsoft.com/fr-fr/dotnet/csharp/programming-guide/"
-        },
-        "C++": {
-            "wikiQuery": "c_plus_plus",
-            "link": "https://isocpp.org/"
-        },
-        "Bootstrap": {
-            "wikiQuery": "Bootstrap_(framework)",
-            "link": "https://getbootstrap.com/docs/4.5/examples/"
-        },
-        "VBS3": {
-            "link": "https://bisimulations.com/"
-        },
-        "Vue.JS": {
-            "wikiQuery": "vuejs",
-            "link": "https://vuejs.org/"
-        },
-        "Unity": {
-            "wikiQuery": "Unity_(game_engine)",
-            "link": "https://unity.com/"
-        },
-        "Java": {
-            "wikiQuery": "Java_(langage)",
-            "link": "https://www.java.com/"
-        },
-        "HLA": {
-            "wikiQuery": "High_Level_Architecture",
-            "link": "https://www.sisostds.org/StandardsActivities/SupportGroups/HLA-EvolvedPSG-HighLevelArchitecture-Evolved.aspx"
-        },
-        "ESP32": {
-            "wikiQuery": "ESP32",
-            "link": "https://www.espressif.com/en/products/socs/esp32/overview"
-        },
-        "WSL": {
-            "wikiQuery": "Windows_Subsystem_for_Linux",
-            "link": "https://docs.microsoft.com/fr-fr/windows/wsl/install-win10"
-        },
-        "Scapy": {
-            "wikiQuery": "Scapy",
-            "link": "https://scapy.net/"
-        },
-        "Tiled": {
-            "link": "https://www.mapeditor.org/"
-        },
-        "Allegro": {
-            "wikiQuery": "Allegro_(software_library)",
-            "link": "https://liballeg.org/"
-        },
-        "Jade": {
-            "wikiQuery": "JADE_(programming_language)",
-            "link": "https://jade.tilab.com/"
-        },
-        "Multi Agents": {
-            "wikiQuery": "Multi-agent_system"
-        },
-        "Word2Vec": {
-            "wikiQuery": "Word2vec"
-        }
     }
 }
