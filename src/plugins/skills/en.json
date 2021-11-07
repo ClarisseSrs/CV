@@ -28,8 +28,4 @@
         "Strength of proposal",
         "Project management"
     ],
-        "toolsInfoMap": {
-        "PowerShell": {
-}
-    }
-}
+        "toolsInfoMap": {}
