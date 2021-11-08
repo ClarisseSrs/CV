@@ -272,7 +272,25 @@ export default {
       showInfoWiki: false,
       showDetailProjects: false,
       currentTool: "",
-      currentToolInfo: {}
+      currentToolInfo: {},
+    };
+  },
+};
+</script>
+<style lang="scss" scoped>
+@import "@/assets/scss/_variables.scss";
+
+.wiki-quote {
+  white-space: pre-line;
+}
+
+.dev-icons {
+  font-size: 3rem;
+  .list-inline-item {
+    cursor: pointer;
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
   }
 }
 .dark .dev-icons :hover {
