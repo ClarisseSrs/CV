@@ -4,7 +4,31 @@
     "toggleDisplay": "toggle detailed view of the project",
     "seeDetails": "see details",
     "projectList": [
-        {
+       {
+            "title": "Creating a website using Django/HTLM/CSS.",
+            "function": "[Student]",
+            "entity": "personal",
+            "info": {
+                "description": "As part of my third year of degree, I am currently creating a project to create a website.",
+                "tools": [
+                    {
+                            "name": "Django"
+                    },
+                    {
+                        "name": "HTML"
+                    },
+                    {
+                        "name": "CSS"
+                    }
+                ]
+            },
+            "dates": [
+                {
+                    "start": "09/2022",
+                    "end": "12/2022"
+                }
+            ]
+        },  {
             "title": "This WebPage",
             "function": "Front-End Developer",
             "entity": "personal",
