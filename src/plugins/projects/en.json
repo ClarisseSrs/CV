@@ -4,8 +4,8 @@
     "toggleDisplay": "toggle detailed view of the project",
     "seeDetails": "see details",
     "projectList": 
-       
-            "title": "Creating a website using Django/HTLM/CSS.",
+    {
+            "title":"Creating a website using Django/HTLM/CSS.",
             "function": "[Student]",
             "entity": "personal",
             "info": {
@@ -29,6 +29,7 @@
                 }
              ]
         },
+        {
             "title": "This WebPage",
             "function": "Front-End Developer",
             "entity": "personal",
@@ -89,5 +90,4 @@
                 }
             ]
         }
-            ]
-        }
+        
