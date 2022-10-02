@@ -1,10 +1,23 @@
 {
     "diplomas": "diplomas",
-    "educationList": [
+    "educationList":   [
+        {
+            "school": "Université de Lille",
+            "degree": "Bachelor's degree in Information and Document Sciences",
+            "program": "Currently in third year, in the pre-professionalization option as a documentalist teacher.",
+            "url": "https://deccid.univ-lille.fr/sid/formation/licence-information-communication-sid/",
+            "dates": [
+                {
+                    "start": "September 2022",
+                    "end": "June 2023"
+                }
+            ]
+        },
+    [
         {
             "school": "Université de Lille",
             "degree": "DEUST Library and documentation professions",
-            "program": "Currently in the second year.",
+            "program": "Diploma obtained.",
             "url": "https://deccid.univ-lille.fr/sid/formation/deust-bibliotheques-documentation/",
             "dates": [
                 {
@@ -28,7 +41,7 @@
         {
             "school": "high school diploma in literature - Lille",
             "degree": "Free applicant",
-            "program": "Specialization in modern language 3: Russian.",
+            "program": "Diploma obtained, specialization in modern language 3: Russian.",
             "url": "",
             "dates": [
                 {
