@@ -4,6 +4,29 @@
     "toggleDisplay": "basculer l'affichage détaillé du projet",
     "seeDetails": "voir les détails",
     "projectList": [
+         {
+            "title": "Création d'un site internet utilisant Django/HTLM/CSS.",
+            "function": "[Étudiant]",
+            "entity": "",
+            "info": {
+                "description": "Dans le cadre de ma troisième année de licence, je suis actuellement en train de créer un site web.",
+                "tools": [
+                    {
+                        "name": "CSS"
+                    }, 
+                    {
+                        "name": "HTML"
+                    },
+                     {
+                        "name": "DJANGO"
+                    }
+                ]
+            },
+            "dates": [
+                {
+                    "start": "09/2022",
+                    "end": "12/2022"
+                }
         {
             "title": "Cette page",
             "function": "Developpeur front-end",
