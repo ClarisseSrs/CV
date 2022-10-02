@@ -1,10 +1,20 @@
 {
     "diplomas": "diplômes",
     "educationList": [
+         {
+            "school": "Université de Lille",
+            "degree": "Licence Sciences de l'information et du document",
+            "program": "Actuellement en troisième année, en option préprofessionnalisation professeur documentaliste.",
+            "url": "https://deccid.univ-lille.fr/sid/formation/licence-information-communication-sid/",
+            "dates": [
+                {
+                    "start": "Septembre 2022",
+                    "end": "Juin 2023"
+                }
         {
             "school": "Université de Lille",
             "degree": "DEUST Métiers des bibliothèques et de la documentation",
-            "program": "Actuellement en deuxième année.",
+            "program": "Diplôme obtenu.",
             "url": "https://deccid.univ-lille.fr/sid/formation/deust-bibliotheques-documentation/",
             "dates": [
                 {
@@ -28,7 +38,7 @@
         {
             "school": "Baccalauréat littéraire - Lille",
             "degree": "Candidat libre",
-            "program": "Spécialisation langue vivante 3 : Russe.",
+            "program": "Diplôme obtenu, spécialisation langue vivante 3 : Russe.",
             "url": "",
             "dates": [
                 {
