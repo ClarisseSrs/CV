@@ -3,7 +3,7 @@
     "linkToProject": "Link to the project",
     "toggleDisplay": "toggle detailed view of the project",
     "seeDetails": "see details",
-    "projectList": 
+    "projectList": [
     {
             "title":"Creating a website using Django/HTLM/CSS.",
             "function": "[Student]",
