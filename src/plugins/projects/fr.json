@@ -4,21 +4,24 @@
     "toggleDisplay": "basculer l'affichage détaillé du projet",
     "seeDetails": "voir les détails",
     "projectList": [
-         {
+        {
             "title": "Création d'un site internet utilisant Django/HTLM/CSS.",
             "function": "[Étudiant]",
-            "entity": "",
+            "entity": "personnel",
             "info": {
                 "description": "Dans le cadre de ma troisième année de licence, je suis actuellement en train de créer un site web.",
                 "tools": [
                     {
                         "name": "CSS"
-                    }, 
+                    },
                     {
                         "name": "HTML"
                     },
-                     {
-                        "name": "DJANGO"
+                    {
+                        "name": "Django"
+                    },
+                    {
+                        "name": "Python"
                     }
                 ]
             },
@@ -26,7 +29,9 @@
                 {
                     "start": "09/2022",
                     "end": "12/2022"
-                },
+                }
+            ]
+        },
         {
             "title": "Cette page",
             "function": "Developpeur front-end",
@@ -58,9 +63,7 @@
             "entity": "Lille Learning Lab",
             "info": {
                 "description": "Dans le cadre de la deuxième année d'études de DEUST je gère quatres autres personnes pour répondre aux besoins de l'équipe de projet Learning Lab de l’Université de Lille qui fait appel à une ressource externe pour les aider. Notre réponse se traduit avec un dossier sur état de l’art des nouveaux espaces en bibliothèque, des exemples de typologies de nouveaux lieux : besoins et usages auxquels ils répondent via des recherches et contacts auprès de bibliothèques en France et à l'étranger.",
-                "tools": [
-
-                ]
+                "tools": []
             },
             "dates": [
                 {

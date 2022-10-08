@@ -1,6 +1,6 @@
 {
     "diplomas": "diplomas",
-    "educationList":   [
+    "educationList": [
         {
             "school": "Université de Lille",
             "degree": "Bachelor's degree in Information and Document Sciences",
@@ -13,7 +13,6 @@
                 }
             ]
         },
-    [
         {
             "school": "Université de Lille",
             "degree": "DEUST Library and documentation professions",
@@ -51,3 +50,4 @@
             ]
         }
     ]
+}

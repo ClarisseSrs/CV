@@ -1,7 +1,7 @@
 {
     "diplomas": "diplômes",
     "educationList": [
-         {
+        {
             "school": "Université de Lille",
             "degree": "Licence Sciences de l'information et du document",
             "program": "Actuellement en troisième année, en option préprofessionnalisation professeur documentaliste.",
@@ -10,7 +10,6 @@
                 {
                     "start": "Septembre 2022",
                     "end": "Juin 2023"
-              
                 }
             ]
         },

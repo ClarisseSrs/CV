@@ -98,16 +98,10 @@ export default {
       email: "clarisse.srsen@outlook.com",
       socialList: [
         {
-          name: "Gitlab",
-          url:  "https://gitlab.com/Clarisse_S",
-          icon: "gitlab",
-        },
-        {
           name: "LinkedIn",
-          url: " www.linkedin.com/in/clarisse-srsen",
+          url: "http://www.linkedin.com/in/clarisse-srsen",
           icon: "linkedin",
         },
-      
       ],
     };
   },
