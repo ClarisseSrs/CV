@@ -2,7 +2,7 @@
     "diplomas": "diplomas",
     "educationList": [
         {
-            "school": "Université de Lille",
+            "school": "Lille University",
             "degree": "Bachelor's degree in Information and Document Sciences",
             "program": "Currently in third year, in the pre-professionalization option as a documentalist teacher.",
             "url": "https://deccid.univ-lille.fr/sid/formation/licence-information-communication-sid/",
@@ -14,7 +14,7 @@
             ]
         },
         {
-            "school": "Université de Lille",
+            "school": "Lille University",
             "degree": "DEUST Library and documentation professions",
             "program": "Diploma obtained.",
             "url": "https://deccid.univ-lille.fr/sid/formation/deust-bibliotheques-documentation/",
@@ -26,7 +26,7 @@
             ]
         },
         {
-            "school": "Université de Lille",
+            "school": "Lille University",
             "degree": "licence FOR FOREIGN AND REGIONAL LANGUAGES, LITERATURES AND CIVILIZATIONS - Russian course",
             "program": "First year of degree.",
             "url": "https://www.univ-lille.fr/formations/fr-00002626.html",
