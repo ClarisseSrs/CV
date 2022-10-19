@@ -1,14 +1,15 @@
 {
     "visitMy": "visitez ma page",
-    "iconOf":"icône de",
-    "aboutText": "<p>Attentive au monde qui m'entoure j'ai toujours au moins un projet personnel en cours pour approfondir mes connaissances ou en acquérir de nouvelles.</p><p>Étudiante dans les métiers de la bibliothèque et de la documentation, je suis actuellement en deuxième année et souhaites m'orienter vers le métier de conservatrice des bibliothèques car les enjeux que ce type de postes implique me passionnent.</p>",    "thoughts": "Pensées",
+    "iconOf": "icône de",
+    "aboutText": "<p>Attentive au monde qui m'entoure j'ai toujours un projet personnel en cours pour approfondir mes connaissances ou en acquérir de nouvelles.</p><p>Étudiante en licence de sciences de l'information et du document, je suis actuellement en troisième année et recherche actuellement un stage dans un Centre de Documentation et d'Information.</p>",  "thoughts": "Pensées",
     "miscellaneousThoughts": "pensées diverses",
     "nextThought": "Pensée suivante",
     "thoughtList": [
-        "❤ Wikipedia ❤",
-        "Vous cherchez une sensibilisation à la sécurité (avancé ou débutant) ? <a class='text-info' href='https://sudo.pagerduty.com/' rel='noopener' target='_blank'>PagerDuty</a> est un bon début.",
         "Fonctionne au mieux sous Firefox ❤",
-        "On vous espionne ! Cette page utilise les préférences de votre OS pour choisir le thème couleur à afficher.",
-        "Vous pouvez sauvegarder votre navigation sur cette page en utilisant les attributs GET 'theme', 'lang', 'projectId' et 'toolName'<br/> Comme <a class='text-info' href='?theme=light&projectId=0&toolName=C%23&lang=en'>ceci</a>."
+        "Mon ambition - ou ma consolation - a été de comprendre la vie. (Idée erronée de la spiritualité de l'écrivain ?) Maintenant je veux juste apprendre à vivre avec. ― Susan SONTAG", "On vous espionne ! Cette page utilise les préférences de votre OS pour choisir le thème couleur à afficher.",
+        "Ils recelaient tout un univers de poésie, de vers trop magnifiques pour être jamais écrits. Où même conservés dans la mémoire.  ― Stephen KING",
+        "Vous pouvez sauvegarder votre navigation sur cette page en utilisant les attributs GET 'theme', 'lang', 'projectId' et 'toolName'<br/> Comme <a class='text-info' href='?theme=light&projectId=0&toolName=C%23&lang=en'>ceci</a>.",
+        "On a ce droit-là - aussi sacré que celui de vivre - de n'avoir à en rendre compte à personne. ―  Marguerite Duras",
+        "Était arrivé à ce moment de la vie, variable pour tout homme, où l’être humain s'abandonne à son démon ou à son génie, suit une loi mystérieuse qui lui ordonne de se détruire ou de se dépasser. ―  Marguerite YOURCENAR",
     ]
 }
