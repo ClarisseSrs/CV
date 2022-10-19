@@ -1,14 +1,15 @@
 {
     "visitMy": "visite my",
     "iconOf":"icon of",
-    "aboutText":"<p>Attentive to the world around me I always have at least one personal project underway to further my knowledge or acquire new ones.</p><p>As a student in the library and documentation professions, I am currently in my second year and would like to go into the profession of library curator because I am passionate about the issues that this type of position involves.</p>",    "thoughts": "Thoughts",
+    "aboutText":"<p>Attentive to the world around me I always have a personal project underway to further my knowledge or acquire new ones.</p><p>I am currently in my third year of study and am looking for an internship in a Documentation and Information Center.</p>",    "thoughts": "Thoughts",
     "miscellaneousThoughts": "miscellaneous thoughts",
     "nextThought": "Next thought",
     "thoughtList": [
-        "❤ Wikipedia ❤",
-        "Looking for cybersecurity training (advanced or beginner) ? <a class='text-info' href='https://sudo.pagerduty.com/' rel='noopener' target='_blank'>PagerDuty</a> is a good start.",
         "Works better with Firefox ❤",
+        "Whether the photograph is understood as a naïve objet or the work of an experienced artificer, its meaning–and the vierwer's response–depends on how the picture is identified or misidentified; that is, on words.  ―Susan SONTAG",
         "You are spied ! This page uses your OS preferences to choose which color theme to use.",
-        "You can save your navigation on this page using GET parameters 'theme', 'lang', 'projectId' and 'toolName'<br/> Like <a class='text-info' href='?theme=light&projectId=0&toolName=C%23&lang=en'>this</a>."
+        "I belong to quick, futile moments of intense feeling. Yes, I belong to moments. Not to people. ― Virginia Woolf",
+        "You can save your navigation on this page using GET parameters 'theme', 'lang', 'projectId' and 'toolName'<br/> Like <a class='text-info' href='?theme=light&projectId=0&toolName=C%23&lang=en'>this</a>.",
+        "Few people ask from books what books can give us. Most commonly we come to books with blurred and divided minds, asking of fiction that it shall be true, of poetry that it shall be false, of biography that it shall be flattering, of history that it shall enforce our own prejudices. If we could banish all such preconceptions when we read, that would be an admirable beginning.”― Virginia Woolf"
     ]
 }
